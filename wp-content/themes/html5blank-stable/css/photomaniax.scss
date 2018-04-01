@@ -1,0 +1,318 @@
+@import "bootstrap/bootstrap";
+@import "../libs/slick/slick";
+@import "../libs/slick/slick-theme";
+
+@import "maniax-var";
+
+@font-face {
+  font-family: 'Avenir LT Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Black'), url('../fonts/AvenirLTStd-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Book';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Book'), url('../fonts/AvenirLTStd-Book.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Heavy';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Heavy'), url('../fonts/AvenirLTStd-Heavy.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Avenir LT'), url('../fonts/AvenirLTStd-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Avenir LT'), url('../fonts/AvenirLTStd-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Roman'), url('../fonts/AvenirLTStd-Roman.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Black';
+  font-style: italic;
+  font-weight: bold;
+  src: local('Avenir LT Black'), url('../fonts/AvenirLTStd-BlackOblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Book';
+  font-style: italic;
+  font-weight: normal;
+  src: local('Avenir LT Book'), url('../fonts/AvenirLTStd-BookOblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Heavy';
+  font-style: italic;
+  font-weight: normal;
+  src: local('Avenir LT Heavy'), url('../fonts/AvenirLTStd-HeavyOblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Avenir LT'), url('../fonts/AvenirLTStd-LightOblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Avenir LT'), url('../fonts/AvenirLTStd-MediumOblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT';
+  font-style: italic;
+  font-weight: normal;
+  src: local('Avenir LT'), url('../fonts/AvenirLTStd-Oblique.woff') format('woff');
+}
+
+
+/* global box-sizing */
+*,
+*:after,
+*:before {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* html element 62.5% font-size for REM use */
+html {
+  font-size: 62.5%;
+  background-color: black;
+  color: white;
+}
+
+body {
+  font: 300 17px 'Avenir LT Roman', Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
+  b, strong {
+    font-weight: bold;
+  }
+  a{
+    color: white;
+  }
+}
+
+/* clear */
+.clear:before,
+.clear:after {
+  content: ' ';
+  display: table;
+}
+
+.clear:after {
+  clear: both;
+}
+
+.clear {
+  *zoom: 1;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $secondary-color;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+input:focus {
+  outline: 0;
+  border: 1px solid #04A4CC;
+}
+
+.transition{
+  transition: width 2s, height 2s, transform 2s;
+}
+
+/*------------------------------------*\
+    STRUCTURE
+\*------------------------------------*/
+
+.header{
+  padding-left: 30px;
+  padding-right: 30px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  a,.fa,.btn {
+    line-height: 75px;
+    cursor: pointer;
+    @extend .transition
+  }
+
+  > div {
+    margin-right: 10px;
+    &:last-child{
+      margin-right: 0px;
+    }
+    &:first-child{
+      margin-left: 0px;
+    }
+  }
+  .logo{
+    font-weight: bold;
+  }
+  nav{
+    > ul{
+      margin-bottom: 0;
+      padding-left: 0;
+      list-style: none;
+      margin-right: 10px;
+      > li{
+        vertical-align: top;
+        display: inline-block;
+        a{
+          text-transform: uppercase;
+          font-size: 14px;
+          border-bottom: 1px solid transparent;
+          padding: 7px 3px 7px 10px;
+          &:hover{
+            border-bottom: 1px solid $secondary-color;
+          }
+        }
+        &:first-child{
+          a{
+            border: 1px solid $secondary-color;
+            border-right: 0px;
+          }
+        }
+        .sub-menu{
+          display: none;
+          transition: opacity 1s ease-out;
+          opacity: 0;
+          background: #151515;
+          margin-bottom: 0;
+          padding-left: 0;
+          list-style: none;
+          margin-right: 10px;
+          li{
+            a{
+              height: inherit;
+              line-height: inherit;
+              padding: 10px;
+              display: block;
+              text-transform: lowercase;
+            }
+          }
+        }
+        &:hover .sub-menu{
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+main{
+  padding-top: 77px;
+}
+
+.footer {
+  position: absolute;
+  width: 45%;
+  height: 100%;
+  background: #151515;
+  z-index: 100000000000;
+  top: 0;
+  left: 0;
+}
+
+subfooter{
+  text-align: center;
+  background: #151515;
+  font-size: 14px;
+  padding: 17px 0;
+  text-transform: lowercase;
+  display: block;
+  p{
+    margin-bottom: 0;
+  }
+}
+
+.box_search{
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 75px);
+  background: #151515;
+  z-index: 100000000000;
+  top: 75px;
+  left: 0;
+}
+
+/*------------------------------------*\
+    ELEMENTS
+\*------------------------------------*/
+
+.close-section{
+  padding: 20px;
+  font-size: 20px;
+  float: right;
+  cursor: pointer;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+
+  display: flex;
+  align-items: center;
+}
+
+/*------------------------------------*\
+    PAGE
+\*------------------------------------*/
+.home{
+  .full-height{
+    .title-home{
+      width: 100%;
+      font-size: 45px;
+    }
+    h1{
+      display: inline-block;
+      font-size: inherit;
+    }
+  }
+}

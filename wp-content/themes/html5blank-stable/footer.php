@@ -1,18 +1,30 @@
-			<!-- footer -->
-			<footer class="footer" role="contentinfo">
 
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
+			<div class="box_search d-none">
+				<?php get_search_form(); ?>
+			</div>
+
+			<!-- footer -->
+			<footer class="footer d-none" role="contentinfo">
+
+				<div class="close-section "><i class="fa fa-close"></i></div>
+
 
 			</footer>
 			<!-- /footer -->
 
-		</div>
-		<!-- /wrapper -->
+			<!-- footer -->
+			<subfooter role="contentinfo">
+
+
+				<!-- copyright -->
+				<p class="copyright">
+					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. dev by Pti-thom with <3.
+				</p>
+				<!-- /copyright -->
+
+			</subfooter>
+			<!-- /footer -->
+
 
 		<?php wp_footer(); ?>
 

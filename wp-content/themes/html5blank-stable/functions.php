@@ -88,7 +88,7 @@ function html5blank_nav()
 }
 
 // Load HTML5 Blank scripts (header.php)
-function html5blank_header_scripts()
+function html5blank_footer_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
@@ -100,6 +100,27 @@ function html5blank_header_scripts()
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
+
+//        wp_register_script('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js', array('jquery'), '4.0.5'); // Custom scripts
+//        wp_enqueue_script('select2'); // Enqueue it!
+
+//        wp_register_script('kwtools', get_template_directory_uri() . '/js/tools.js', array('jquery'), '1.0.0');
+//        wp_enqueue_script('kwtools'); // Enqueue it!
+
+//        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+//        wp_enqueue_script('html5blankscripts'); // Enqueue it!
+//        wp_localize_script('html5blankscripts', 'ajaxurl', admin_url('admin-ajax.php'));
+
+        wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap/src/index.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('bootstrap'); // Enqueue it!
+
+        wp_register_script('bootstrap-datepicker', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js', array('jquery', 'bootstrap'), '1.7.1'); // Custom scripts
+        wp_enqueue_script('bootstrap-datepicker'); // Enqueue it!
+
+        wp_register_script('bootstrap-datepicker-fr', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.fr.min.js', array('jquery', 'bootstrap'), '1.7.1'); // Custom scripts
+        wp_enqueue_script('bootstrap-datepicker-fr'); // Enqueue it!
+
+
     }
 }
 
@@ -120,6 +141,14 @@ function html5blank_styles()
 
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
+
+    wp_register_style('photomaniax', get_template_directory_uri() . '/css/photomaniax.css', array(), '1.0', 'all');
+    wp_enqueue_style('photomaniax'); // Enqueue it!
+
+    wp_register_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '1.0', 'all');
+    wp_enqueue_style('fontawesome'); // Enqueue it!
+
+
 }
 
 // Register HTML5 Blank Navigation
@@ -340,7 +369,8 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
+//add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
+add_action('wp_footer', 'html5blank_footer_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet

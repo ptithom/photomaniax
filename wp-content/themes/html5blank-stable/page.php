@@ -2,6 +2,9 @@
 
 	<main role="main">
 		<!-- section -->
+
+		<div class="wrapper">
+
 		<section>
 
 			<h1><?php the_title(); ?></h1>
@@ -38,8 +41,9 @@
 
 		</section>
 		<!-- /section -->
-	</main>
 
-<?php get_sidebar(); ?>
+		</div>
+
+	</main>
 
 <?php get_footer(); ?>
