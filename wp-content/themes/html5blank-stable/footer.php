@@ -18,7 +18,7 @@
 
 				<!-- copyright -->
 				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. dev by Pti-thom with <3.
+					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. dev by <a href="https://github.com/ptithom" target="_blank">Pti-thom</a> with <3.
 				</p>
 				<!-- /copyright -->
 
