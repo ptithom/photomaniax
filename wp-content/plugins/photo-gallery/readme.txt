@@ -3,7 +3,7 @@ Contributors: webdorado,wdsupport,photogallerysupport
 Tags: gallery, photo gallery, image gallery, responsive gallery, wordpress gallery plugin, photo albums, gallery slider, gallery lightbox, wordpress photo gallery plugin, fullscreen gallery, watermarking, video gallery
 Requires at least: 3.4
 Tested up to: 4.9 
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ https://www.youtube.com/watch?v=3u0O9ZdVsGc
 [Special Offer for all Premium Plugins](https://web-dorado.com/wordpress-plugins-bundle.html) 
 [WordPress Photo Gallery](https://web-dorado.com/products/wordpress-photo-gallery-plugin.html)  
 [Demo](http://wpdemo.web-dorado.com/photo-gallery/)  
-[User Manual](https://web-dorado.com/wordpress-gallery-guide-step-1.html)  
+[User Manual](https://web-dorado.com/wordpress-gallery/installing.html)  
 [Support Forum](https://wordpress.org/support/plugin/photo-gallery)  
  
 
@@ -278,6 +278,10 @@ Choose whether to display random or the first/last specific number of images.
 
 
 == Changelog ==
+
+= 1.4.3 =
+* Fixed: Embed type galleries.   
+* Fixed: Minor bug with PHP v5.3. 
 
 = 1.4.2 =
 * Fixed: Unicode filenames.   

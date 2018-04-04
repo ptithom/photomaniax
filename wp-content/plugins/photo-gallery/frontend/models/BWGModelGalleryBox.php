@@ -46,8 +46,10 @@ class BWGModelGalleryBox {
 		foreach ( $rows as $row ) {
 		  $row->pure_image_url = $row->image_url;
 		  $row->pure_thumb_url = $row->thumb_url;
-      $row->image_url = $row->image_url . '?bwg=' . $row->modified_date;
-      $row->thumb_url = $row->thumb_url . '?bwg=' . $row->modified_date;
+      if ( strpos($row->filetype, 'EMBED') === FALSE ) {
+        $row->image_url = $row->image_url . '?bwg=' . $row->modified_date;
+        $row->thumb_url = $row->thumb_url . '?bwg=' . $row->modified_date;
+      }
 			$images[] = $row;
 		}
 	}

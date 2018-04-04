@@ -248,8 +248,9 @@ class OptionsController_bwg {
       $new_file_path = htmlspecialchars_decode(ABSPATH . BWG()->upload_dir . $img_id->thumb_url, ENT_COMPAT | ENT_QUOTES);
       $image = wp_get_image_editor( $file_path );
       if ( ! is_wp_error( $image ) ) {
-        $img_width = $image->get_size()['width'];
-        $img_height = $image->get_size()['height'];
+        $image_size = $image->get_size();
+        $img_width = $image_size['width'];
+        $img_height = $image_size['height'];
       }
       if (!$img_width || !$img_height) {
         continue;

@@ -1,6 +1,9 @@
 
-			<div class="box_search d-none">
-				<?php get_search_form(); ?>
+			<div class="box_search d-none full-height">
+				<div class="close-section "><i class="fa fa-close"></i></div>
+				<div class="vertical-center text-center">
+					<?php get_search_form(); ?>
+				</div>
 			</div>
 
 			<!-- footer -->
@@ -8,6 +11,49 @@
 
 				<div class="close-section "><i class="fa fa-close"></i></div>
 
+				<div>
+					<h3 class="heading-decor">
+						<span>Photomaniax</span>
+					</h3>
+					<div class="content_section">
+						<?php get_field('footer_desc','option') ?>
+					</div>
+
+				</div>
+
+
+				<div>
+					<h3 class="heading-decor">
+						<span>Latest Photos</span>
+					</h3>
+					<div class="content_section">
+						<?php
+
+						$attachments = get_posts( array(
+							'post_type' => 'attachment',
+							'posts_per_page' => 1,
+							'post_status' => null,
+							'post_mime_type' => 'image'
+						) );
+
+						foreach ( $attachments as $attachment ) {
+							echo wp_get_attachment_image( $attachment->ID, 'thumbnail' );
+						}
+
+						?>
+					</div>
+
+				</div>
+
+				<div>
+					<h3 class="heading-decor">
+						<span>Nous contacter</span>
+					</h3>
+					<div class="content_section">
+						<?php get_field('footer_contact','option') ?>
+					</div>
+
+				</div>
 
 			</footer>
 			<!-- /footer -->

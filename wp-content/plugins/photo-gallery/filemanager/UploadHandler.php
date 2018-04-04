@@ -302,8 +302,9 @@ class bwg_UploadHandler {
       $image = wp_get_image_editor( $file_path );
       $success = false;
       if ( ! is_wp_error( $image ) ) {
-        $img_width = $image->get_size()['width'];
-        $img_height = $image->get_size()['height'];
+        $image_size = $image->get_size();
+        $img_width = $image_size['width'];
+        $img_height = $image_size['height'];
         if (!$img_width || !$img_height) {
           return false;
         }

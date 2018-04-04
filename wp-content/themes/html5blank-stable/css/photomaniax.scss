@@ -169,6 +169,54 @@ input:focus {
 }
 
 /*------------------------------------*\
+    ELEMENTS
+\*------------------------------------*/
+
+.close-section{
+  padding: 20px;
+  font-size: 30px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+
+  display: flex;
+  align-items: center;
+}
+
+.heading-decor{
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  font-style: normal;
+  font-size: 48px;
+  padding-bottom: 20px;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.24s ease-in-out;
+  -moz-transition: opacity 0.24s ease-in-out;
+  transition: opacity 0.24s ease-in-out;
+  margin-bottom: 30px;
+  padding-top: 25px;
+  &:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 30px;
+    border-bottom: 2px solid;
+    color: $secondary-color;
+    margin-top: 20px;
+    vertical-align: top;
+    bottom: 0;
+    left: calc(50% - 15px);
+  }
+}
+
+/*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
 
@@ -178,6 +226,7 @@ input:focus {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 1;
   a,.fa,.btn {
     line-height: 75px;
     cursor: pointer;
@@ -214,8 +263,8 @@ input:focus {
             border-bottom: 1px solid $secondary-color;
           }
         }
-        &:first-child{
-          a{
+        &.current-menu-item{
+          > a{
             border: 1px solid $secondary-color;
             border-right: 0px;
           }
@@ -259,6 +308,32 @@ main{
   z-index: 100000000000;
   top: 0;
   left: 0;
+  padding: 30px 5%;
+  padding-top: 60px;
+  .heading-decor {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.24s ease-in-out;
+    -moz-transition: opacity 0.24s ease-in-out;
+    transition: opacity 0.24s ease-in-out;
+    text-align: left;
+    &:after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 30px;
+      border-bottom: 2px solid;
+      color: #c48f56;
+      margin-top: 20px;
+      vertical-align: top;
+      bottom: 0;
+      left: 0;
+    }
+  }
 }
 
 subfooter{
@@ -281,25 +356,35 @@ subfooter{
   z-index: 100000000000;
   top: 75px;
   left: 0;
+  .close-section{
+    left: auto;
+    right: 0;
+  }
+  form.search{
+    margin: auto;
+    input{
+      background-color: transparent;
+      border: 1px solid #c48f56;
+      padding: 7px 15px;
+      border-right: 0px;
+      color: white;
+    }
+    button{
+      background-color: transparent;
+      padding: 7px 15px;
+      color: white;
+      -webkit-transition: 0.24s ease-in-out;
+      -moz-transition: 0.24s ease-in-out;
+      transition: 0.24s ease-in-out;
+      &:hover{
+        background-color: white;
+        color: black;
+      }
+    }
+  }
 }
 
-/*------------------------------------*\
-    ELEMENTS
-\*------------------------------------*/
 
-.close-section{
-  padding: 20px;
-  font-size: 20px;
-  float: right;
-  cursor: pointer;
-}
-
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-
-  display: flex;
-  align-items: center;
-}
 
 /*------------------------------------*\
     PAGE
@@ -314,5 +399,69 @@ subfooter{
       display: inline-block;
       font-size: inherit;
     }
+  }
+}
+
+.archive, .category{
+  .listing_cat{
+    margin: 35px 0;
+    text-align: center;
+    padding: 0;
+    li{
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+      padding: 0 8px;
+      text-decoration: none;
+      line-height: normal;
+      font-size: 14px;
+      color: inherit;
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      margin: 5px 10px;
+      &:after {
+        content: "";
+        color: $secondary-color;
+        box-shadow: inset 0 -9px 0 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 9px;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      &:hover,&.active{
+        &:after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+    }
+  }
+
+  .content-posts{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    article{
+      background-color: #151515;
+      .wrapper-desc-post{
+        padding: 20px 30px;
+        font-size: 14px;
+      }
+    }
+
+
   }
 }
