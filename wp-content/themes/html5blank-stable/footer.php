@@ -31,7 +31,7 @@
 
 						$attachments = get_posts( array(
 							'post_type' => 'attachment',
-							'posts_per_page' => 1,
+							'posts_per_page' => 6,
 							'post_status' => null,
 							'post_mime_type' => 'image'
 						) );

@@ -100,6 +100,8 @@ function html5blank_footer_scripts()
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
+        wp_localize_script('html5blankscripts', 'ajaxurl', admin_url('admin-ajax.php'));
+
 
 //        wp_register_script('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js', array('jquery'), '4.0.5'); // Custom scripts
 //        wp_enqueue_script('select2'); // Enqueue it!
@@ -478,5 +480,49 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 {
     return '<h2>' . $content . '</h2>';
 }
+
+/*------------------------------------*\
+	ShortCode Functions
+\*------------------------------------*/
+
+add_action( 'wp_ajax_load_ajax', 'load_ajax' );
+add_action( 'wp_ajax_nopriv_load_ajax', 'load_ajax' );
+
+function load_ajax() {
+    $ppp        = (isset($_POST['ppp'])) ? $_POST['ppp'] : 6;
+    $offset     = (isset($_POST['offset'])) ? $_POST['offset'] : 0;
+    $order      = (isset($_POST['order'])) ? $_POST['order'] : "DESC";
+    $id_cat     = (isset($_POST['idcat'])) ? $_POST['idcat'] : null;
+
+
+    $args = array(
+        'post_status'       => 'publish',
+        'order'             => $order,
+        'posts_per_page'    => $ppp,
+        'cat'               => $id_cat,
+        'offset'            => $offset,
+    );
+
+    $loop = new WP_Query($args);
+
+    if ($loop->have_posts()) :
+        while ($loop->have_posts()) :
+            $loop->the_post();
+            get_template_part('loop-ajax');
+        endwhile;
+    else: ?>
+
+        <!-- article -->
+        <article>
+            <h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+        </article>
+        <!-- /article -->
+
+    <?php endif;
+
+    die();
+
+}
+
 
 ?>

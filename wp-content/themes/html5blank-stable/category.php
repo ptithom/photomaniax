@@ -20,14 +20,13 @@
 				) );
 				// print_r($children); // uncomment to examine for debugging
 				if(!empty($childrens)): ?>
-					<ul class="listing_cat">
+					<ul class="listing_cat" >
 
-						<li class="select-cat active" data-id="<?= $term->term_id ?>">
+						<li class="select-cat active" data-id="<?= $cat->term_taxonomy_id ?>">
 							All
 						</li>
 					<?php foreach($childrens as $children): ?>
-
-						<li class="select-cat" data-id="<?= $children->term_id ?>">
+						<li class="select-cat" data-idcat="<?= $children->term_taxonomy_id ?>" >
 							<?= $children->name?>
 						</li>
 
@@ -36,7 +35,24 @@
 				<?php endif; ?>
 
 				<div class="content-posts">
-					<?php get_template_part('loop'); ?>
+
+					<p class="desc_cat">desc</p>
+					<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
+						<?php get_template_part('loop-ajax'); ?>
+
+					<?php endwhile; ?>
+
+					<?php else: ?>
+
+						<!-- article -->
+						<article>
+							<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+						</article>
+						<!-- /article -->
+
+					<?php endif; ?>
+
 				</div>
 
 			</section>

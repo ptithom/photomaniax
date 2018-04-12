@@ -216,6 +216,15 @@ input:focus {
   }
 }
 
+.loaderajax{
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+}
+
 /*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
