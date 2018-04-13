@@ -4,89 +4,7 @@
 
 @import "maniax-var";
 
-@font-face {
-  font-family: 'Avenir LT Black';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Avenir LT Black'), url('../fonts/AvenirLTStd-Black.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT Book';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Avenir LT Book'), url('../fonts/AvenirLTStd-Book.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT Heavy';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Avenir LT Heavy'), url('../fonts/AvenirLTStd-Heavy.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Avenir LT'), url('../fonts/AvenirLTStd-Light.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Avenir LT'), url('../fonts/AvenirLTStd-Medium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT Roman';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Avenir LT Roman'), url('../fonts/AvenirLTStd-Roman.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT Black';
-  font-style: italic;
-  font-weight: bold;
-  src: local('Avenir LT Black'), url('../fonts/AvenirLTStd-BlackOblique.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT Book';
-  font-style: italic;
-  font-weight: normal;
-  src: local('Avenir LT Book'), url('../fonts/AvenirLTStd-BookOblique.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT Heavy';
-  font-style: italic;
-  font-weight: normal;
-  src: local('Avenir LT Heavy'), url('../fonts/AvenirLTStd-HeavyOblique.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: italic;
-  font-weight: 300;
-  src: local('Avenir LT'), url('../fonts/AvenirLTStd-LightOblique.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: italic;
-  font-weight: 500;
-  src: local('Avenir LT'), url('../fonts/AvenirLTStd-MediumOblique.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: italic;
-  font-weight: normal;
-  src: local('Avenir LT'), url('../fonts/AvenirLTStd-Oblique.woff') format('woff');
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
 
 /* global box-sizing */
@@ -108,7 +26,7 @@ html {
 }
 
 body {
-  font: 300 17px 'Avenir LT Roman', Helvetica, Arial, sans-serif;
+  font: 300 15px 'Montserrat', Helvetica, Arial, sans-serif;
   background-color: black;
   color: white;
   b, strong {
@@ -214,6 +132,12 @@ input:focus {
     bottom: 0;
     left: calc(50% - 15px);
   }
+  &.left{
+    text-align: left;
+    &:after {
+      left: 0;
+    }
+  }
 }
 
 .loaderajax{
@@ -225,6 +149,12 @@ input:focus {
   background-color: #000000a6;
   z-index: 10;
   padding-top: 25%;
+}
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*------------------------------------*\
@@ -245,7 +175,7 @@ input:focus {
   }
 
   > div {
-    margin-right: 10px;
+    margin-left: 20px;
     &:last-child{
       margin-right: 0px;
     }
@@ -335,8 +265,23 @@ input:focus {
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
     cursor: pointer;
-    .element{
+    .close-section{
+      visibility: hidden;
+    }
+    &.active{
+      background: #c48f56;
+      color: #fff;
+      .close-section{
+        visibility: visible;
+      }
+      .element{
+        visibility: hidden;
+      }
+    }
+    span{
+      width: max-content;
       position: absolute;
+      font-size: 15px;
       left: 50%;
       top: 50%;
       -moz-transform: rotate(-90deg) translate(-50%, -50%);
@@ -354,9 +299,10 @@ input:focus {
       -o-transition: all 0.3s ease;
       -ms-transition: all 0.3s ease;
       transition: all 0.3s ease;
-      &+ .element {
-        margin-top: 90px;
-      }
+
+    }
+    &+ .content-rotate {
+      margin-top: 90px;
     }
   }
 }
@@ -412,8 +358,8 @@ main{
 
 subfooter{
   text-align: center;
-  background: #151515;
-  font-size: 14px;
+  background: black;
+  font-size: 12px;
   padding: 17px 0;
   text-transform: lowercase;
   display: block;
@@ -461,16 +407,31 @@ subfooter{
 }
 
 .box_about{
-  .background-image{
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-  }
+  width: calc(100% - 150px);
+  margin-left: 75px;
   .content-about{
-    padding: 25px;
-    padding-top: 40px;
+    overflow-y: scroll;
+    /* max-height: 100%; */
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: -20px;
+    padding: 0 85px 0 65px;
+    text-align: left;
   }
+}
+
+.background-image{
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 
@@ -483,10 +444,12 @@ subfooter{
     .title-home{
       width: 100%;
       font-size: 45px;
+      font-weight: bold;
     }
     h1{
       display: inline-block;
       font-size: inherit;
+      font-weight: inherit;
     }
   }
 }
@@ -554,6 +517,13 @@ subfooter{
       .wrapper-desc-post{
         padding: 20px 30px;
         font-size: 14px;
+        .wrapper-details{
+          color: #ffffff82;
+          font-size: 12px;
+          span{
+            display: block;
+          }
+        }
       }
       .cat_preview_media{
         background-position: center;
@@ -565,5 +535,33 @@ subfooter{
     }
 
 
+  }
+}
+
+.single{
+  .heading-decor.title{
+    margin-bottom: 50px;
+  }
+  .wrapper-desc-single{
+    margin-bottom: 40px;
+    .wrapper-details{
+      color: #ffffff82;
+      font-size: 12px;
+      span{
+        display: block;
+      }
+    }
+    .wrapper-content{
+
+    }
+  }
+  .wrapper-medias{
+    .wrapper-media{
+      margin-bottom: 15px;
+    }
+    .background-image{
+      min-height: 250px;
+      display: block;
+    }
   }
 }

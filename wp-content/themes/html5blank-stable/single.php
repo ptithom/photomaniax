@@ -10,31 +10,57 @@
 				<!-- article -->
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-					<!-- post thumbnail -->
-					<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-						</a>
-					<?php endif; ?>
-					<!-- /post thumbnail -->
 
 					<!-- post title -->
-					<h1 class="heading-decor">
+					<h1 class="heading-decor title">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 					</h1>
 					<!-- /post title -->
 
-					<!-- post details -->
-					<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-					<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-					<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-					<!-- /post details -->
 
-					<?php the_content(); // Dynamic Content ?>
+					<div class="row wrapper-desc-single">
+						<div class="col-md-4">
+							<p><?php the_author(); ?></p>
+							<?php the_author_posts_link(); ?>
+						</div>
+						<div class="col-md-8">
 
-					<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
+							<div class="wrapper-content">
+								<?php the_content(); // Dynamic Content ?>
+							</div>
 
-					<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
+							<!-- post details -->
+							<div class="wrapper-details">
+							<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
+							<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
+							</div>
+							<!-- /post details -->
+
+
+
+						</div>
+
+					</div>
+
+					<div class="wrapper-medias">
+						<h2 class="heading-decor left">
+							Galerie
+						</h2>
+						<!-- /post title -->
+
+						<div class="row">
+
+							<?php if(!empty(get_field( "media" ))):?>
+								<?php foreach(get_field( "media" ) as $media): ?>
+									<div class="col-md-3 wrapper-media">
+										<a href="<?= $media['media'] ?>" data-fancybox="gallery" class="background-image" style="background-image: url('<?= $media['media'] ?>')"></a>
+									</div>
+										<?php endforeach; ?>
+							<?php endif; ?>
+
+						</div>
+					</div>
+
 
 					<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 

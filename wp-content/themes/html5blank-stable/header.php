@@ -49,10 +49,21 @@
 	<div class="nav-left">
 		<div class="wrapper-rotate">
 			<div class="content-rotate section-toggle" data-class_toggle="box_about">
-				<div class="element">About</div>
+				<span class="element">About
+				</span>
+				<span class="close-section closest">
+					<i class="fa fa-close"></i>
+					close
+				</span>
 			</div>
 			<div class="content-rotate section-toggle " data-class_toggle="footer">
-				<div class="element">Catégorie</div>
+				<span class="element">Catégorie
+
+				</span>
+				<span class="close-section closest">
+					<i class="fa fa-close"></i>
+					close
+				</span>
 			</div>
 		</div>
 	</div>

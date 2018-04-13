@@ -8,25 +8,24 @@
 
 
 			<div class="box_about d-none full-height">
-				<div class="close-section ">
-					<i class="fa fa-close"></i>
-				</div>
 				<div class="text-center">
 					<div class="row full-height">
-						<div class="col-12 col-md-5 ">
+						<div class="col-12 col-md-6 ">
 							<div class="background-image" style="background-image: url(<?= get_the_post_thumbnail_url(9) ?>)"></div>
 						</div>
-						<div class="col-12 col-md-7 ">
-							<div class="content-about">
+						<div class="col-12 col-md-6 ">
+							<div class="content-about Aligner">
+								<div class="Aligner-item">
 								<?php
 
 								$post_12 = get_post(9);
 								$trim_me = $post_12->post_content;
 
-								echo "<h3 class='heading-decor'>".$post_12->post_title."</h3>";
+								echo "<h3 class='heading-decor left'>".$post_12->post_title."</h3>";
 								echo $trim_me;
 
 								?>
+								</div>
 							</div>
 						</div>
 					</div>

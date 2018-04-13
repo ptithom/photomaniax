@@ -5,6 +5,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -6695,66 +6696,6 @@ a.text-dark:hover, a.text-dark:focus {
       color: black;
       opacity: 0.75; }
 
-@font-face {
-  font-family: 'Avenir LT Black';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Avenir LT Black"), url("../fonts/AvenirLTStd-Black.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT Book';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Avenir LT Book"), url("../fonts/AvenirLTStd-Book.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT Heavy';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Avenir LT Heavy"), url("../fonts/AvenirLTStd-Heavy.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Avenir LT"), url("../fonts/AvenirLTStd-Light.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Avenir LT"), url("../fonts/AvenirLTStd-Medium.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT Roman';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Avenir LT Roman"), url("../fonts/AvenirLTStd-Roman.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT Black';
-  font-style: italic;
-  font-weight: bold;
-  src: local("Avenir LT Black"), url("../fonts/AvenirLTStd-BlackOblique.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT Book';
-  font-style: italic;
-  font-weight: normal;
-  src: local("Avenir LT Book"), url("../fonts/AvenirLTStd-BookOblique.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT Heavy';
-  font-style: italic;
-  font-weight: normal;
-  src: local("Avenir LT Heavy"), url("../fonts/AvenirLTStd-HeavyOblique.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: italic;
-  font-weight: 300;
-  src: local("Avenir LT"), url("../fonts/AvenirLTStd-LightOblique.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: italic;
-  font-weight: 500;
-  src: local("Avenir LT"), url("../fonts/AvenirLTStd-MediumOblique.woff") format("woff"); }
-@font-face {
-  font-family: 'Avenir LT';
-  font-style: italic;
-  font-weight: normal;
-  src: local("Avenir LT"), url("../fonts/AvenirLTStd-Oblique.woff") format("woff"); }
 /* global box-sizing */
 *,
 *:after,
@@ -6772,7 +6713,7 @@ html {
   color: white; }
 
 body {
-  font: 300 17px 'Avenir LT Roman', Helvetica, Arial, sans-serif;
+  font: 300 15px 'Montserrat', Helvetica, Arial, sans-serif;
   background-color: black;
   color: white; }
   body b, body strong {
@@ -6861,6 +6802,10 @@ input:focus {
     vertical-align: top;
     bottom: 0;
     left: calc(50% - 15px); }
+  .heading-decor.left {
+    text-align: left; }
+    .heading-decor.left:after {
+      left: 0; }
 
 .loaderajax {
   display: none;
@@ -6871,6 +6816,11 @@ input:focus {
   background-color: #000000a6;
   z-index: 10;
   padding-top: 25%; }
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 /*------------------------------------*\
     STRUCTURE
@@ -6886,7 +6836,7 @@ input:focus {
     line-height: 75px;
     cursor: pointer; }
   .header > div {
-    margin-right: 10px; }
+    margin-left: 20px; }
     .header > div:last-child {
       margin-right: 0px; }
     .header > div:first-child {
@@ -6956,8 +6906,19 @@ input:focus {
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
     cursor: pointer; }
-    .nav-left .content-rotate .element {
+    .nav-left .content-rotate .close-section {
+      visibility: hidden; }
+    .nav-left .content-rotate.active {
+      background: #c48f56;
+      color: #fff; }
+      .nav-left .content-rotate.active .close-section {
+        visibility: visible; }
+      .nav-left .content-rotate.active .element {
+        visibility: hidden; }
+    .nav-left .content-rotate span {
+      width: max-content;
       position: absolute;
+      font-size: 15px;
       left: 50%;
       top: 50%;
       -moz-transform: rotate(-90deg) translate(-50%, -50%);
@@ -6975,8 +6936,8 @@ input:focus {
       -o-transition: all 0.3s ease;
       -ms-transition: all 0.3s ease;
       transition: all 0.3s ease; }
-      .nav-left .content-rotate .element + .element {
-        margin-top: 90px; }
+    .nav-left .content-rotate + .content-rotate {
+      margin-top: 90px; }
 
 .home .nav-left {
   display: block; }
@@ -7022,8 +6983,8 @@ main {
 
 subfooter {
   text-align: center;
-  background: #151515;
-  font-size: 14px;
+  background: black;
+  font-size: 12px;
   padding: 17px 0;
   text-transform: lowercase;
   display: block; }
@@ -7062,24 +7023,41 @@ subfooter {
         background-color: white;
         color: black; }
 
-.box_about .background-image {
+.box_about {
+  width: calc(100% - 150px);
+  margin-left: 75px; }
+  .box_about .content-about {
+    overflow-y: scroll;
+    /* max-height: 100%; */
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: -20px;
+    padding: 0 85px 0 65px;
+    text-align: left; }
+
+.background-image {
   background-position: center;
   background-size: cover;
   height: 100%;
   width: 100%; }
-.box_about .content-about {
-  padding: 25px;
-  padding-top: 40px; }
+
+.cell {
+  display: table-cell;
+  vertical-align: middle; }
 
 /*------------------------------------*\
     PAGE
 \*------------------------------------*/
 .home .full-height .title-home {
   width: 100%;
-  font-size: 45px; }
+  font-size: 45px;
+  font-weight: bold; }
 .home .full-height h1 {
   display: inline-block;
-  font-size: inherit; }
+  font-size: inherit;
+  font-weight: inherit; }
 
 .archive .listing_cat, .category .listing_cat, .search .listing_cat {
   margin: 35px 0;
@@ -7134,10 +7112,30 @@ subfooter {
     .archive .content-posts article .wrapper-desc-post, .category .content-posts article .wrapper-desc-post, .search .content-posts article .wrapper-desc-post {
       padding: 20px 30px;
       font-size: 14px; }
+      .archive .content-posts article .wrapper-desc-post .wrapper-details, .category .content-posts article .wrapper-desc-post .wrapper-details, .search .content-posts article .wrapper-desc-post .wrapper-details {
+        color: #ffffff82;
+        font-size: 12px; }
+        .archive .content-posts article .wrapper-desc-post .wrapper-details span, .category .content-posts article .wrapper-desc-post .wrapper-details span, .search .content-posts article .wrapper-desc-post .wrapper-details span {
+          display: block; }
     .archive .content-posts article .cat_preview_media, .category .content-posts article .cat_preview_media, .search .content-posts article .cat_preview_media {
       background-position: center;
       background-size: cover;
       min-height: 300px;
       width: 100%; }
+
+.single .heading-decor.title {
+  margin-bottom: 50px; }
+.single .wrapper-desc-single {
+  margin-bottom: 40px; }
+  .single .wrapper-desc-single .wrapper-details {
+    color: #ffffff82;
+    font-size: 12px; }
+    .single .wrapper-desc-single .wrapper-details span {
+      display: block; }
+.single .wrapper-medias .wrapper-media {
+  margin-bottom: 15px; }
+.single .wrapper-medias .background-image {
+  min-height: 250px;
+  display: block; }
 
 /*# sourceMappingURL=photomaniax.css.map */
