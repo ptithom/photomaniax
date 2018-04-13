@@ -49,7 +49,7 @@
 	<div class="nav-left">
 		<div class="wrapper-rotate">
 			<div class="content-rotate section-toggle" data-class_toggle="box_about">
-				<span class="element">About
+				<span class="element">Le projet
 				</span>
 				<span class="close-section closest">
 					<i class="fa fa-close"></i>
