@@ -45,3 +45,14 @@
 
 		</header>
 		<!-- /header -->
+
+	<div class="nav-left">
+		<div class="wrapper-rotate">
+			<div class="content-rotate section-toggle" data-class_toggle="box_about">
+				<div class="element">About</div>
+			</div>
+			<div class="content-rotate section-toggle " data-class_toggle="footer">
+				<div class="element">Catégorie</div>
+			</div>
+		</div>
+	</div>

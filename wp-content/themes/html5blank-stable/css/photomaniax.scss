@@ -307,6 +307,64 @@ input:focus {
     }
   }
 }
+
+.nav-left{
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 70px;
+  overflow: hidden;
+  .wrapper-rotate{
+    height: 657px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .content-rotate{
+    text-align: center;
+    position: relative;
+    width: 70px;
+    height: 175px;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    .element{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -moz-transform: rotate(-90deg) translate(-50%, -50%);
+      -ms-transform: rotate(-90deg) translate(-50%, -50%);
+      -webkit-transform: rotate(-90deg) translate(-50%, -50%);
+      -o-transform: rotate(-90deg) translate(-50%, -50%);
+      /* transform: rotate(-90deg) translate(-50%, -50%); */
+      -moz-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      -webkit-transform-origin: 0 0;
+      -o-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      &+ .element {
+        margin-top: 90px;
+      }
+    }
+  }
+}
+
+.home .nav-left{
+  display: block;
+}
+
 main{
   padding-top: 77px;
 }
@@ -364,17 +422,19 @@ subfooter{
   }
 }
 
-.box_search{
-  position: absolute;
+.box_search,.box_about{
+  position: fixed;
   width: 100%;
   height: calc(100% - 75px);
   background: #151515;
   z-index: 100000000000;
   top: 75px;
   left: 0;
+  overflow: auto;
   .close-section{
     left: auto;
     right: 0;
+    z-index: 5;
   }
   form.search{
     margin: auto;
@@ -397,6 +457,19 @@ subfooter{
         color: black;
       }
     }
+  }
+}
+
+.box_about{
+  .background-image{
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .content-about{
+    padding: 25px;
+    padding-top: 40px;
   }
 }
 
