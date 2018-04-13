@@ -7037,19 +7037,44 @@ subfooter {
     padding: 0 85px 0 65px;
     text-align: left; }
 
-.background-image {
+.background-image, .wrapper_user .picture_author {
   background-position: center;
   background-size: cover;
   height: 100%;
   width: 100%; }
 
-.cell {
-  display: table-cell;
-  vertical-align: middle; }
+.wrapper_user {
+  border: 1px solid #c48f56;
+  border-left: 0px;
+  padding: 20px; }
+  .wrapper_user .picture_author {
+    min-height: 100px; }
+  .wrapper_user .name_author {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px; }
+  .wrapper_user .job_author {
+    margin-bottom: 10px; }
+  .wrapper_user .info_user a {
+    padding-left: 20px;
+    position: relative;
+    display: block;
+    font-size: 12px; }
+    .wrapper_user .info_user a:before {
+      content: " ";
+      position: absolute;
+      width: 7px;
+      height: 3px;
+      left: 0;
+      line-height: 100%;
+      background-color: #c48f56;
+      margin-top: 7px; }
 
 /*------------------------------------*\
     PAGE
 \*------------------------------------*/
+.home .header nav ul li.menu-item-56 {
+  display: none; }
 .home .full-height .title-home {
   width: 100%;
   font-size: 45px;
@@ -7123,6 +7148,10 @@ subfooter {
       min-height: 300px;
       width: 100%; }
 
+.single .rappel-cat .conraintes {
+  margin-top: 5px;
+  padding-left: 20px;
+  color: white; }
 .single .heading-decor.title {
   margin-bottom: 50px; }
 .single .wrapper-desc-single {
@@ -7134,8 +7163,12 @@ subfooter {
       display: block; }
 .single .wrapper-medias .wrapper-media {
   margin-bottom: 15px; }
-.single .wrapper-medias .background-image {
+.single .wrapper-medias .background-image, .single .wrapper-medias .wrapper_user .picture_author, .wrapper_user .single .wrapper-medias .picture_author {
   min-height: 250px;
   display: block; }
+
+.page-template-page-auteurs .wrapper_auteurs {
+  margin-top: 50px;
+  padding-bottom: 50px; }
 
 /*# sourceMappingURL=photomaniax.css.map */

@@ -429,9 +429,41 @@ subfooter{
   width: 100%;
 }
 
-.cell {
-  display: table-cell;
-  vertical-align: middle;
+
+.wrapper_user{
+  border: 1px solid #c48f56;
+  border-left: 0px;
+  padding: 20px;
+  .picture_author{
+    @extend .background-image;
+    min-height: 100px;
+  }
+  .name_author{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .job_author{
+    margin-bottom: 10px;
+  }
+  .info_user{
+    a{
+      padding-left: 20px;
+      position: relative;
+      display: block;
+      font-size: 12px;
+      &:before{
+        content: " " ;
+        position: absolute;
+        width: 7px;
+        height: 3px;
+        left: 0;
+        line-height: 100%;
+        background-color: #c48f56;
+        margin-top: 7px;
+      }
+    }
+  }
 }
 
 
@@ -440,6 +472,13 @@ subfooter{
     PAGE
 \*------------------------------------*/
 .home{
+  .header{
+    nav{
+      ul li.menu-item-56{
+        display: none;
+      }
+    }
+  }
   .full-height{
     .title-home{
       width: 100%;
@@ -539,6 +578,16 @@ subfooter{
 }
 
 .single{
+
+  .rappel-cat{
+    .conraintes{
+      margin-top: 5px;
+      padding-left: 20px;
+      color: white;
+    }
+  }
+
+
   .heading-decor.title{
     margin-bottom: 50px;
   }
@@ -563,5 +612,12 @@ subfooter{
       min-height: 250px;
       display: block;
     }
+  }
+}
+
+.page-template-page-auteurs{
+  .wrapper_auteurs{
+    margin-top: 50px;
+    padding-bottom: 50px;
   }
 }

@@ -19,9 +19,36 @@
 
 
 					<div class="row wrapper-desc-single">
-						<div class="col-md-4">
-							<p><?php the_author(); ?></p>
-							<?php the_author_posts_link(); ?>
+						<div class="col-md-4 section_user">
+
+							<?php $author = get_userdata($post->post_author); ?>
+							<div class="wrapper_user">
+								<div class="row -">
+									<div class="col-md-5">
+										<a href="<?= get_author_posts_url(); ?>">
+											<div class="picture_author" style="background-image: url('<?= get_field('media_user',$author); ?>') "></div>
+										</a>
+									</div>
+									<div class="col-md-7">
+										<a href="<?= get_author_posts_url(); ?>">
+											<div class="name_author">
+												<?= get_the_author_meta( 'first_name' ); ?> <?= get_the_author_meta( 'last_name' ); ?>
+											</div>
+										</a>
+										<div class="job_author">
+											<?= get_field('role',$author); ?>
+										</div>
+										<div class="info_user">
+											<?php if(!empty(get_field('links',$author))):?>
+												<?php foreach(get_field('links',$author) as $link): ?>
+													<a href="<?= $link['url'] ?>" target="_blank"><?= $link['label'] ?></a>
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</div>
+									</div>
+								</div>
+							</div>
+
 						</div>
 						<div class="col-md-8">
 
@@ -31,13 +58,32 @@
 
 							<!-- post details -->
 							<div class="wrapper-details">
-							<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-							<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
+									<?php
+									$perma_cat = get_post_meta($post->ID , '_category_permalink', true);
+									if ( $perma_cat != null ) {
+										$cat_id = $perma_cat['category'];
+										$category = get_category($cat_id);
+									} else {
+										$categories = get_the_category();
+										$category = $categories[0];
+									}
+									$category_link = get_category_link($category);
+									$category_name = $category->name;
+									$contraintes = get_field('contraintes',$category)
+									?>
+
+
+								<p>
+									<?php _e( 'Categorised in: ', 'html5blank' ); ?>
+									<a href="<?php echo $category_link ?>"><?php echo $category_name ?></a>
+								</p>
+								<div class="rappel-cat">
+									Rappel des contrainte de la serie :<br>
+									<div class="conraintes"><?= $contraintes ?></div>
+								</div>
+								<!-- /post details -->
+
 							</div>
-							<!-- /post details -->
-
-
-
 						</div>
 
 					</div>
@@ -55,7 +101,7 @@
 									<div class="col-md-3 wrapper-media">
 										<a href="<?= $media['media'] ?>" data-fancybox="gallery" class="background-image" style="background-image: url('<?= $media['media'] ?>')"></a>
 									</div>
-										<?php endforeach; ?>
+								<?php endforeach; ?>
 							<?php endif; ?>
 
 						</div>
