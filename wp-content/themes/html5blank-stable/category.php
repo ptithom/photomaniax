@@ -8,8 +8,6 @@
 
 				<h1 class="heading-decor"><?php single_cat_title(); ?></h1>
 
-				<?php  ?>
-
 				<?php
 
 				$cat = get_queried_object();
@@ -36,7 +34,7 @@
 
 				<div class="content-posts">
 
-					<p class="desc_cat">desc</p>
+					<div class="desc_cat"><?php echo category_description(); ?></div>
 					<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 						<?php get_template_part('loop-ajax'); ?>

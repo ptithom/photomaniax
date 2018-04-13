@@ -505,6 +505,8 @@ function load_ajax() {
 
     $loop = new WP_Query($args);
 
+    echo '<div class="desc_cat">'. category_description($id_cat).'</div>';
+
     if ($loop->have_posts()) :
         while ($loop->have_posts()) :
             $loop->the_post();

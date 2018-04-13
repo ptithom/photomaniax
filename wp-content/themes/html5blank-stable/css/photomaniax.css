@@ -6867,8 +6867,10 @@ input:focus {
   position: absolute;
   height: 100%;
   width: 100%;
-  left: 50%;
-  top: 50%; }
+  text-align: center;
+  background-color: #000000a6;
+  z-index: 10;
+  padding-top: 25%; }
 
 /*------------------------------------*\
     STRUCTURE
@@ -6932,7 +6934,7 @@ main {
   padding-top: 77px; }
 
 .footer {
-  position: absolute;
+  position: fixed;
   width: 45%;
   height: 100%;
   background: #151515;
@@ -6940,7 +6942,8 @@ main {
   top: 0;
   left: 0;
   padding: 30px 5%;
-  padding-top: 60px; }
+  padding-top: 60px;
+  overflow: auto; }
   .footer .heading-decor {
     margin-bottom: 25px;
     font-weight: 700;
@@ -6963,6 +6966,8 @@ main {
       vertical-align: top;
       bottom: 0;
       left: 0; }
+  .footer .latest-img {
+    margin: 10px; }
 
 subfooter {
   text-align: center;
@@ -7057,10 +7062,20 @@ subfooter {
 .archive .content-posts, .category .content-posts {
   margin-bottom: 50px;
   margin-top: 50px; }
+  .archive .content-posts .desc_cat, .category .content-posts .desc_cat {
+    margin-bottom: 50px;
+    text-align: center;
+    color: #ffffff82; }
   .archive .content-posts article, .category .content-posts article {
-    background-color: #151515; }
+    background-color: #151515;
+    margin-bottom: 20px; }
     .archive .content-posts article .wrapper-desc-post, .category .content-posts article .wrapper-desc-post {
       padding: 20px 30px;
       font-size: 14px; }
+    .archive .content-posts article .cat_preview_media, .category .content-posts article .cat_preview_media {
+      background-position: center;
+      background-size: cover;
+      min-height: 300px;
+      width: 100%; }
 
 /*# sourceMappingURL=photomaniax.css.map */

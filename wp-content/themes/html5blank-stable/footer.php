@@ -37,7 +37,7 @@
 						) );
 
 						foreach ( $attachments as $attachment ) {
-							echo wp_get_attachment_image( $attachment->ID, 'thumbnail' );
+							echo wp_get_attachment_image( $attachment->ID, array('100', '100'), "", array( "class" => "latest-img" ) );
 						}
 
 						?>

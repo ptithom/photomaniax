@@ -1,11 +1,17 @@
 
+
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<div class="row">
 
 			<div class="col-12 col-md-7">
-
+				<?php
+				$media_url = "";
+				if(!empty(get_field( "media" ))){
+					$media_url = get_field( "media" )[0]["media"];
+				} ?>
+				<div class="cat_preview_media" style="background-image: url('<?= $media_url ?>')"></div>
 			</div>
 			<div class="col-12 col-md-5 wrapper-desc-post">
 
@@ -16,9 +22,11 @@
 				<!-- /post title -->
 
 				<!-- post details -->
-				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
 				<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-				<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+				<?php if ( ! empty( get_the_category() ) ): $categories = get_the_category();?>
+					<span class="cat text-uppercase"><?php _e( 'in', 'html5blank' ); ?> <?= $categories[0]->name; ?></span>
+				<?php endif; ?>
+
 				<!-- /post details -->
 
 				<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>

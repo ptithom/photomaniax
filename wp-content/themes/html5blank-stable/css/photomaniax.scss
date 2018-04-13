@@ -221,8 +221,10 @@ input:focus {
   position: absolute;
   height: 100%;
   width: 100%;
-  left: 50%;
-  top: 50%;
+  text-align: center;
+  background-color: #000000a6;
+  z-index: 10;
+  padding-top: 25%;
 }
 
 /*------------------------------------*\
@@ -310,7 +312,7 @@ main{
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   width: 45%;
   height: 100%;
   background: #151515;
@@ -319,6 +321,7 @@ main{
   left: 0;
   padding: 30px 5%;
   padding-top: 60px;
+  overflow: auto;
   .heading-decor {
     margin-bottom: 25px;
     font-weight: 700;
@@ -343,6 +346,10 @@ main{
       left: 0;
     }
   }
+  .latest-img{
+    margin: 10px;
+  }
+
 }
 
 subfooter{
@@ -463,11 +470,24 @@ subfooter{
   .content-posts{
     margin-bottom: 50px;
     margin-top: 50px;
+    .desc_cat{
+      margin-bottom: 50px;
+      text-align: center;
+      color: #ffffff82;
+    }
     article{
       background-color: #151515;
+      margin-bottom: 20px;
       .wrapper-desc-post{
         padding: 20px 30px;
         font-size: 14px;
+      }
+      .cat_preview_media{
+        background-position: center;
+        background-size: cover;
+        min-height: 300px;
+        width: 100%;
+
       }
     }
 
