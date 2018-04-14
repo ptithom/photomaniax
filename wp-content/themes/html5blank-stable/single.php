@@ -110,7 +110,6 @@
 					<div class="social full-size">
 						<a class="btn facebook" href="<?= stafe_get_share_link($post->ID, 'facebook') ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> PARTAGER</a>
 						<a class="btn twitter" href="<?= stafe_get_share_link($post->ID, 'twitter') ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> PARTAGER</a>
-						<a class="btn mail" href="<?= stafe_get_share_link($post->ID, 'e-mail') ?> > ENVOYER PAR MAIL</a>
 					</div>
 
 
