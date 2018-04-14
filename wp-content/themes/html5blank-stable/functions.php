@@ -533,4 +533,44 @@ function load_ajax() {
 }
 
 
+function stafe_get_share_link($post_id, $media)
+{
+    $post = get_post($post_id);
+    if ($post) {
+        $post_title = urlencode($post->post_title);
+        $post_url = urlencode(get_permalink($post->ID));
+        $thId = get_post_thumbnail_id($post);
+        $post_media = urlencode(wp_get_attachment_url($thId));
+        switch ($media) {
+            case 'fb':
+            case 'facebook':
+                return 'http://www.facebook.com/sharer/sharer.php?u=' . $post_url . '&title=' . $post_title . '&picture=' . $post_media;
+                break;
+            case 'g+':
+            case 'google':
+            case 'googleplus':
+                return 'https://plus.google.com/share?url=' . $post_url . '';
+                break;
+            case 'twitter':
+                return 'http://twitter.com/intent/tweet?status=' . $post_title . '+' . $post_url . '';
+                break;
+            case 'pinterest':
+                return 'http://pinterest.com/pin/create/bookmarklet/?media=' . $post_media . '&url=' . $post_url . '&is_video=false&description=' . $post_title;
+                break;
+            case 'mail':
+            case 'email':
+            case 'e-mail':
+                return 'mailto:?subject=' . $post_title . '&body=Check out this site I came across ' . $post_url . '';
+                break;
+            case 'linkedin':
+                return 'http://www.linkedin.com/shareArticle?mini=true&url=' . $post_url . '&title=' . $post_title . '';
+                break;
+        }
+    }
+
+    return false;
+}
+
+
+
 ?>
