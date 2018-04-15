@@ -36,8 +36,12 @@
 				<i class="fa fa-search"></i>
 			</div>
 
+			<div class="picto-nav-mobile section-toggle text-right float-right" data-class_toggle="nav">
+				<i class="fa fa-bars"></i>
+			</div>
+
 			<!-- nav -->
-			<nav class="nav d-inline-block text-right float-right" role="navigation">
+			<nav class="nav" role="navigation">
 				<?php html5blank_nav(); ?>
 			</nav>
 			<!-- /nav -->

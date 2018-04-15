@@ -186,7 +186,16 @@ input:focus {
   .logo{
     font-weight: bold;
   }
+  .picto-nav-mobile{
+    @media screen and (min-width: 760px) {
+      display: none;
+    }
+  }
   nav{
+    display: inline-block;
+    background-color: black;
+    float: right;
+    text-align: right;
     > ul{
       margin-bottom: 0;
       padding-left: 0;
@@ -204,7 +213,7 @@ input:focus {
             border-bottom: 1px solid $secondary-color;
           }
         }
-        &.current-menu-item{
+        &[class*="current"]{
           > a{
             border: 1px solid $secondary-color;
             border-right: 0px;
@@ -232,6 +241,21 @@ input:focus {
         &:hover .sub-menu{
           display: block;
           opacity: 1;
+        }
+      }
+    }
+    @media screen and (max-width: 760px) {
+      display: none;
+      background-color: #151515;
+      float: none;
+      text-align: left;
+      > ul{
+        display: block;
+        > li{
+          display: block;
+          .sub-menu{
+            display: none;
+          }
         }
       }
     }
@@ -308,7 +332,9 @@ input:focus {
 }
 
 .home .nav-left{
-  display: block;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
 main{
@@ -326,6 +352,9 @@ main{
   padding: 30px 5%;
   padding-top: 60px;
   overflow: auto;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
   .heading-decor {
     margin-bottom: 25px;
     font-weight: 700;
@@ -363,6 +392,9 @@ subfooter{
   padding: 17px 0;
   text-transform: lowercase;
   display: block;
+  @media screen and (max-width: 480px) {
+    padding: 17px 20px;
+  }
   p{
     margin-bottom: 0;
   }
@@ -476,6 +508,9 @@ subfooter{
     nav{
       ul li.menu-item-56{
         display: none;
+        @media screen and (max-width: 768px) {
+          display: block;
+        }
       }
     }
   }
@@ -484,6 +519,9 @@ subfooter{
       width: 100%;
       font-size: 45px;
       font-weight: bold;
+      @media screen and (max-width: 480px) {
+        font-size: 35px;
+      }
     }
     h1{
       display: inline-block;
@@ -494,6 +532,9 @@ subfooter{
 }
 
 .archive, .category, .search{
+  .wrapper-empty{
+    padding: 40px 20px;
+  }
   .listing_cat{
     margin: 35px 0;
     text-align: center;
@@ -607,6 +648,26 @@ subfooter{
   .wrapper-medias{
     .wrapper-media{
       margin-bottom: 15px;
+
+      a{
+        position: relative;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        &:after{
+          content:"";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(196, 143, 86, 0.43);
+          visibility: hidden;
+        }
+        &:hover:after{
+          visibility: visible;
+        }
+      }
     }
     .background-image{
       min-height: 250px;
