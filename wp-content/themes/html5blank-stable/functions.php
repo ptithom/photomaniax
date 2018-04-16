@@ -514,10 +514,14 @@ function load_ajax() {
     echo '<div class="desc_cat">'. category_description($id_cat).'</div>';
 
     if ($loop->have_posts()) :
+        echo '<div class="row">';
         while ($loop->have_posts()) :
             $loop->the_post();
+            echo '<div class="col-12 col-md-6">';
             get_template_part('loop-ajax');
+            echo '</div>';
         endwhile;
+        echo '</div>';
     else: ?>
 
         <!-- article -->
