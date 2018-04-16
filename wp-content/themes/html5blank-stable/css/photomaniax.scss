@@ -187,6 +187,7 @@ input:focus {
     font-weight: bold;
   }
   .picto-nav-mobile{
+    padding: 0px 20px;
     @media screen and (min-width: 760px) {
       display: none;
     }

@@ -43,7 +43,7 @@
 						<span>Photomaniax</span>
 					</h3>
 					<div class="content_section">
-						<?php get_field('footer_desc','option') ?>
+						<?= get_field('footer_desc','option') ?>
 					</div>
 
 				</div>
@@ -77,7 +77,7 @@
 						<span>Nous contacter</span>
 					</h3>
 					<div class="content_section">
-						<?php get_field('footer_contact','option') ?>
+						<?= get_field('footer_contact','option') ?>
 					</div>
 
 				</div>

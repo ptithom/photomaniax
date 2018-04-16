@@ -11,7 +11,9 @@
 				if(!empty(get_field( "media" ))){
 					$media_url = get_field( "media" )[0]["media"];
 				} ?>
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<div class="cat_preview_media" style="background-image: url('<?= $media_url ?>')"></div>
+				</a>
 			</div>
 			<div class="col-12 col-md-5 wrapper-desc-post">
 

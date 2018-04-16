@@ -6843,9 +6843,11 @@ input:focus {
       margin-left: 0px; }
   .header .logo {
     font-weight: bold; }
-  @media screen and (min-width: 760px) {
-    .header .picto-nav-mobile {
-      display: none; } }
+  .header .picto-nav-mobile {
+    padding: 0px 20px; }
+    @media screen and (min-width: 760px) {
+      .header .picto-nav-mobile {
+        display: none; } }
   .header nav {
     display: inline-block;
     background-color: black;
@@ -7014,7 +7016,7 @@ subfooter {
   display: block; }
   @media screen and (max-width: 480px) {
     subfooter {
-      padding: 17px 21px; } }
+      padding: 17px 20px; } }
   subfooter p {
     margin-bottom: 0; }
 

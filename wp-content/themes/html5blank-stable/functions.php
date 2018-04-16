@@ -571,6 +571,23 @@ function stafe_get_share_link($post_id, $media)
     return false;
 }
 
+function insert_opengraph_in_head() {
+
+    global $post;
+    if ( !is_singular()) // On vérifie si nous somme dans un article ou une page
+        return;
+
+    echo '<meta property="og:title" content="' . get_the_title() . '"/>';
+    echo '<meta property="og:type" content="article"/>';
+    echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+    echo '<meta property="og:description" content="' .strip_tags(get_the_excerpt()) . '" />';
+    echo '<meta property="og:site_name" content="NOM DE MON SITE"/>';
+
+    $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+    echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+    echo '<link rel="image_src" href="'. esc_attr( $thumbnail_src[0] ) . '" />';
+}
+add_action( 'wp_head', 'insert_opengraph_in_head', 5 );
 
 
 ?>
