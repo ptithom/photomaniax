@@ -35,11 +35,15 @@
 				<div class="content-posts">
 
 					<div class="desc_cat"><?php echo category_description(); ?></div>
+
+					<div class="row">
 					<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
+						<div class="col-12 col-md-6">
 						<?php get_template_part('loop-ajax'); ?>
-
+						</div>
 					<?php endwhile; ?>
+
+					</div>
 
 					<?php else: ?>
 
