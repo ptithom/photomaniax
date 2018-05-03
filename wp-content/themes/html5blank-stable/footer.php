@@ -84,7 +84,7 @@
 
 				<div>
 					<h3 class="heading-decor">
-						<span>Nous contacter</span>
+						<span>Participer a l'Aventure</span>
 					</h3>
 					<div class="content_section">
 						<?= get_field('footer_contact','option') ?>
