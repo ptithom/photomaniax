@@ -382,6 +382,11 @@ main{
   }
   .latest-img{
     margin: 10px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
   }
 
 }
@@ -612,7 +617,7 @@ subfooter{
         background-size: cover;
         min-height: 300px;
         width: 100%;
-
+        box-shadow: 8px -2px 34px #000;
       }
     }
 
@@ -658,6 +663,7 @@ subfooter{
         -o-transition: all 0.5s ease;
         -ms-transition: all 0.5s ease;
         transition: all 0.5s ease;
+        box-shadow: 8px -2px 34px #000;
         &:after{
           content:"";
           position: absolute;

@@ -128,7 +128,7 @@
 			load_ajax(order,0,idcat ,'6',function(response){
 				content.html(response);
 				loader_toggle(false);
-				update_display_load_more();
+				//update_display_load_more();
 			});
 		});
 

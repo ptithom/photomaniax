@@ -7005,7 +7005,13 @@ main {
       bottom: 0;
       left: 0; }
   .footer .latest-img {
-    margin: 10px; }
+    margin: 10px;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center; }
 
 subfooter {
   text-align: center;
@@ -7184,7 +7190,8 @@ subfooter {
       background-position: center;
       background-size: cover;
       min-height: 300px;
-      width: 100%; }
+      width: 100%;
+      box-shadow: 8px -2px 34px #000; }
 
 .single .rappel-cat .conraintes {
   margin-top: 5px;
@@ -7207,7 +7214,8 @@ subfooter {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
-    transition: all 0.5s ease; }
+    transition: all 0.5s ease;
+    box-shadow: 8px -2px 34px #000; }
     .single .wrapper-medias .wrapper-media a:after {
       content: "";
       position: absolute;

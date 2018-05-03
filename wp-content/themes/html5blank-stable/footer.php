@@ -51,20 +51,30 @@
 
 				<div>
 					<h3 class="heading-decor">
-						<span>Latest Photos</span>
+						<span>Latest Article</span>
 					</h3>
 					<div class="content_section">
 						<?php
 
-						$attachments = get_posts( array(
-							'post_type' => 'attachment',
+						$loop = new WP_Query( array(
 							'posts_per_page' => 6,
-							'post_status' => null,
-							'post_mime_type' => 'image'
-						) );
+							'post_status'    => 'publish',
+						));
 
-						foreach ( $attachments as $attachment ) {
-							echo wp_get_attachment_image( $attachment->ID, array('100', '100'), "", array( "class" => "latest-img" ) );
+						if ($loop->have_posts()){
+							while ($loop->have_posts()){
+								$loop->the_post();
+								$media_url = "";
+								if(!empty(get_field( "media" ))){
+									$media_url = get_field( "media" )[0]["media"];
+								}
+						?>
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+									<div class="latest-img" style="background-image: url('<?= $media_url ?>')"></div>
+								</a>
+								<?php
+
+							}
 						}
 
 						?>

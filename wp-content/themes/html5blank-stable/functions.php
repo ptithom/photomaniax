@@ -109,7 +109,7 @@ function html5blank_footer_scripts()
 //        wp_enqueue_script('html5blankscripts'); // Enqueue it!
 //        wp_localize_script('html5blankscripts', 'ajaxurl', admin_url('admin-ajax.php'));
 
-        wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap/src/index.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_register_script('bootstrap', get_template_directory_uri() . '/js/lib/bootstrap/src/index.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('bootstrap'); // Enqueue it!
 
         wp_register_script('lightbox', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js', array('jquery'), '1.0.0'); // Conditional script(s)
@@ -575,23 +575,43 @@ function stafe_get_share_link($post_id, $media)
     return false;
 }
 
-function insert_opengraph_in_head() {
 
+function fb_opengraph() {
     global $post;
-    if ( !is_singular()) // On vérifie si nous somme dans un article ou une page
+
+    if(is_single()) {
+
+        if(has_post_thumbnail($post->ID)) {
+            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
+        } elseif(!empty(get_field( "media",$post->ID ))){
+            $img_src = get_field( "media" )[0]["media"];
+        }else {
+            $img_src = get_stylesheet_directory_uri() . '/img/opengraph_image.jpg';
+        }
+
+        if($excerpt = $post->post_excerpt) {
+            $excerpt = strip_tags($post->post_excerpt);
+            $excerpt = str_replace("", "'", $excerpt);
+        } else {
+            $excerpt = get_bloginfo('description');
+        }
+        ?>
+
+        <meta property="og:title" content="<?php echo the_title(); ?>"/>
+        <meta property="og:description" content="<?php echo $excerpt; ?>"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
+        <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
+        <meta property="og:image" content="<?php echo $img_src; ?>"/>
+        <link rel="image_src" href="<?php echo $img_src; ?>" />
+
+        <?php
+    } else {
         return;
-
-    echo '<meta property="og:title" content="' . get_the_title() . '"/>';
-    echo '<meta property="og:type" content="article"/>';
-    echo '<meta property="og:url" content="' . get_permalink() . '"/>';
-    echo '<meta property="og:description" content="' .strip_tags(get_the_excerpt()) . '" />';
-    echo '<meta property="og:site_name" content="NOM DE MON SITE"/>';
-
-    $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
-    echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
-    echo '<link rel="image_src" href="'. esc_attr( $thumbnail_src[0] ) . '" />';
+    }
 }
-add_action( 'wp_head', 'insert_opengraph_in_head', 5 );
+add_action('wp_head', 'fb_opengraph', 5);
+
 
 
 ?>
