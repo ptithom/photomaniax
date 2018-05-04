@@ -74,7 +74,7 @@
 							<?php if(!empty(get_field( "media" ))):?>
 								<?php foreach(get_field( "media" ) as $media): ?>
 									<div class="col-md-3 wrapper-media">
-										<a href="<?= wp_get_attachment_image_src($media['media'],'full') ?>" data-fancybox="gallery" class="background-image" style="background-image: url('<?= wp_get_attachment_image_src($media['media'],'medium') ?>')"></a>
+										<a href="<?= wp_get_attachment_image_src($media['media'],'full')[0] ?>" data-fancybox="gallery" class="background-image" style="background-image: url('<?= wp_get_attachment_image_src($media['media'],'medium')[0] ?>')"></a>
 									</div>
 								<?php endforeach; ?>
 							<?php endif; ?>
