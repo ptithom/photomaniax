@@ -70,7 +70,7 @@
 								}
 						?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-									<div class="latest-img" style="background-image: url('<?= wp_get_attachment_image_src($media_url,'medium')[0] ?>')"></div>
+									<div class="latest-img" style="background-image: url('<?= wp_get_attachment_image_src($media_url,'small')[0] ?>')"></div>
 								</a>
 								<?php
 
