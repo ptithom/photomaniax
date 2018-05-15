@@ -103,6 +103,13 @@
 			if(element.hasClass('d-none')) {
 				$(this).addClass('active');
 				element.removeClass('d-none').addClass('d-block');
+				if($(this).data('class_toggle') == "box_slide_cat"){
+					$('.slick_slider_cat').slick({
+						infinite: true,
+						slidesToShow: 4,
+						slidesToScroll: 4
+					});
+				}
 			}else {
 				$(this).removeClass('active');
 				element.slideUp("100", function () {
@@ -131,6 +138,8 @@
 				//update_display_load_more();
 			});
 		});
+
+
 
 
 	});

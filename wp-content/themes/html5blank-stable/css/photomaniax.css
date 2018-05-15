@@ -6828,10 +6828,11 @@ input:focus {
 .header {
   padding-left: 30px;
   padding-right: 30px;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1; }
+  z-index: 1;
+  background-color: black; }
   .header a, .header .fa, .header .btn {
     line-height: 75px;
     cursor: pointer; }
@@ -6959,14 +6960,23 @@ input:focus {
       -ms-transition: all 0.3s ease;
       transition: all 0.3s ease; }
     .nav-left .content-rotate + .content-rotate {
-      margin-top: 90px; }
+      margin-top: 90px;
+      position: relative; }
+      .nav-left .content-rotate + .content-rotate:before {
+        content: "";
+        position: absolute;
+        background-color: #c48f56;
+        height: 5px;
+        width: 5px;
+        border-radius: 10px;
+        top: -45px; }
 
 @media screen and (min-width: 768px) {
   .home .nav-left {
     display: block; } }
 
 main {
-  padding-top: 77px; }
+  padding-top: 75px; }
 
 .footer {
   position: fixed;
@@ -7006,7 +7016,6 @@ main {
       left: 0; }
   .footer .latest-img {
     margin: 10px;
-    margin: 10px;
     width: 100px;
     height: 100px;
     display: inline-block;
@@ -7019,14 +7028,16 @@ subfooter {
   font-size: 12px;
   padding: 17px 0;
   text-transform: lowercase;
-  display: block; }
+  display: block;
+  position: fixed;
+  width: 100%; }
   @media screen and (max-width: 480px) {
     subfooter {
       padding: 17px 20px; } }
   subfooter p {
     margin-bottom: 0; }
 
-.box_search, .box_about {
+.box_search, .box_about, .box_slide_cat {
   position: fixed;
   width: 100%;
   height: calc(100% - 75px);
@@ -7035,34 +7046,34 @@ subfooter {
   top: 75px;
   left: 0;
   overflow: auto; }
-  .box_search .close-section, .box_about .close-section {
+  .box_search .close-section, .box_about .close-section, .box_slide_cat .close-section {
     left: auto;
     right: 0;
     z-index: 5; }
-  .box_search form.search, .box_about form.search {
+  .box_search form.search, .box_about form.search, .box_slide_cat form.search {
     margin: auto; }
-    .box_search form.search input, .box_about form.search input {
+    .box_search form.search input, .box_about form.search input, .box_slide_cat form.search input {
       background-color: transparent;
       border: 1px solid #c48f56;
       padding: 7px 15px;
       border-right: 0px;
       color: white; }
-    .box_search form.search button, .box_about form.search button {
+    .box_search form.search button, .box_about form.search button, .box_slide_cat form.search button {
       background-color: transparent;
       padding: 7px 15px;
       color: white;
       -webkit-transition: 0.24s ease-in-out;
       -moz-transition: 0.24s ease-in-out;
       transition: 0.24s ease-in-out; }
-      .box_search form.search button:hover, .box_about form.search button:hover {
+      .box_search form.search button:hover, .box_about form.search button:hover, .box_slide_cat form.search button:hover {
         background-color: white;
         color: black; }
 
-.box_about {
-  width: calc(100% - 150px);
-  margin-left: 75px;
+.box_about, .box_slide_cat {
+  width: calc(100% - 140px);
+  margin-left: 70px;
   overflow: hidden; }
-  .box_about .content-about {
+  .box_about .content-about, .box_slide_cat .content-about {
     overflow-y: scroll;
     /* max-height: 100%; */
     position: absolute;
@@ -7082,7 +7093,8 @@ subfooter {
 .wrapper_user {
   border: 1px solid #c48f56;
   border-left: 0px;
-  padding: 20px; }
+  padding: 20px;
+  margin-bottom: 25px; }
   .wrapper_user .picture_author {
     min-height: 100px; }
   .wrapper_user .name_author {
@@ -7109,6 +7121,16 @@ subfooter {
 /*------------------------------------*\
     PAGE
 \*------------------------------------*/
+.slick_slider_cat .slide_cat {
+  position: relative; }
+  .slick_slider_cat .slide_cat .content_title_cat {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 10px;
+    right: 20px; }
+
 .home .header nav ul li.menu-item-56 {
   display: none; }
   @media screen and (max-width: 768px) {
@@ -7116,8 +7138,9 @@ subfooter {
       display: block; } }
 .home .full-height .title-home {
   width: 100%;
-  font-size: 45px;
-  font-weight: bold; }
+  font-size: 5vw;
+  font-weight: bold;
+  text-shadow: 6px 4px #c48f56; }
   @media screen and (max-width: 480px) {
     .home .full-height .title-home {
       font-size: 35px; } }

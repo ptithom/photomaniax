@@ -164,10 +164,11 @@ input:focus {
 .header{
   padding-left: 30px;
   padding-right: 30px;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
+  background-color: black;
   a,.fa,.btn {
     line-height: 75px;
     cursor: pointer;
@@ -328,6 +329,16 @@ input:focus {
     }
     &+ .content-rotate {
       margin-top: 90px;
+      position:relative;
+      &:before{
+        content: "";
+        position: absolute;
+        background-color: #c48f56;
+        height: 5px;
+        width: 5px;
+        border-radius: 10px;
+        top: -45px;
+      }
     }
   }
 }
@@ -339,7 +350,7 @@ input:focus {
 }
 
 main{
-  padding-top: 77px;
+  padding-top: 75px;
 }
 
 .footer {
@@ -398,6 +409,8 @@ subfooter{
   padding: 17px 0;
   text-transform: lowercase;
   display: block;
+  position: fixed;
+  width: 100%;
   @media screen and (max-width: 480px) {
     padding: 17px 20px;
   }
@@ -406,7 +419,7 @@ subfooter{
   }
 }
 
-.box_search,.box_about{
+.box_search,.box_about,.box_slide_cat{
   position: fixed;
   width: 100%;
   height: calc(100% - 75px);
@@ -444,9 +457,9 @@ subfooter{
   }
 }
 
-.box_about{
-  width: calc(100% - 150px);
-  margin-left: 75px;
+.box_about,.box_slide_cat{
+  width: calc(100% - 140px);
+  margin-left: 70px;
   overflow: hidden;
   .content-about{
     overflow-y: scroll;
@@ -473,6 +486,7 @@ subfooter{
   border: 1px solid #c48f56;
   border-left: 0px;
   padding: 20px;
+  margin-bottom: 25px;
   .picture_author{
     @extend .background-image;
     min-height: 100px;
@@ -510,6 +524,21 @@ subfooter{
 /*------------------------------------*\
     PAGE
 \*------------------------------------*/
+.slick_slider_cat{
+  .slide_cat{
+    position: relative;
+    .content_title_cat{
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+    }
+  }
+}
+
+
 .home{
   .header{
     nav{
@@ -524,8 +553,9 @@ subfooter{
   .full-height{
     .title-home{
       width: 100%;
-      font-size: 45px;
+      font-size: 5vw;
       font-weight: bold;
+      text-shadow: 6px 4px #c48f56;
       @media screen and (max-width: 480px) {
         font-size: 35px;
       }

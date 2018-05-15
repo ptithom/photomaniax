@@ -60,7 +60,7 @@
 					close
 				</span>
 			</div>
-			<div class="content-rotate section-toggle " data-class_toggle="footer">
+			<div class="content-rotate section-toggle " data-class_toggle="box_slide_cat">
 				<span class="element">Catégorie
 
 				</span>
