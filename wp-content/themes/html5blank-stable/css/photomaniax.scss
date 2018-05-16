@@ -527,13 +527,32 @@ subfooter{
 .slick_slider_cat{
   .slide_cat{
     position: relative;
+    .background-image{
+      -webkit-transition:background-position .1s ease-in;
+      -moz-transition:background-position .1s ease-in;
+      -o-transition:background-position .1s ease-in;
+      transition:background-position .1s ease-in;
+      &:hover{
+        background-position-x: 45%;
+      }
+    }
+
     .content_title_cat{
       font-size: 20px;
       font-weight: bold;
       text-transform: uppercase;
       position: absolute;
-      bottom: 10px;
+      bottom: 15px;
       right: 20px;
+      &:before{
+        content: "";
+        display: block;
+        height: 3px;
+        width: 30px;
+        background-color: #c48f56;
+        bottom: -5px;
+        position: absolute;
+      }
     }
   }
 }

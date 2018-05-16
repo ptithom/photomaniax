@@ -54,11 +54,13 @@
 				<?php foreach($childrens as $children): ?>
 
 					<div class="full-height slide_cat">
-						<div class="background-image" style="background-image: url(<?= get_field( "media",$children->terme_id ) ?>)">
+						<a href="<?= get_category_link($children) ?>">
+						<div class="background-image" style="background-image: url(<?= get_field( "media",$children )["sizes"]["medium_large"] ?>)">
 							<div class="content_title_cat">
 								<?= $children->name?>
 							</div>
 						</div>
+						</a>
 					</div>
 
 				<?php endforeach; ?>
