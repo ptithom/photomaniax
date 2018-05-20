@@ -594,6 +594,7 @@ function fb_opengraph() {
         }else {
             $img_src = get_stylesheet_directory_uri() . '/img/opengraph_image.jpg';
         }
+        $size_media = getimagesize($img_src);
 
         $perma_cat = get_post_meta($post->ID , '_category_permalink', true);
         if ( $perma_cat != null ) {
@@ -619,6 +620,8 @@ function fb_opengraph() {
         <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
         <meta property="og:image" content="<?php echo $img_src; ?>"/>
+        <meta property="og:image:width" content="<?php echo $size_media[0]; ?>"/>
+        <meta property="og:image:height" content="<?php echo $size_media[1]; ?>"/>
         <link rel="image_src" href="<?php echo $img_src; ?>" />
 
         <?php
