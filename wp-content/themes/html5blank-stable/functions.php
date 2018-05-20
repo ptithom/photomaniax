@@ -622,7 +622,26 @@ function fb_opengraph() {
         <link rel="image_src" href="<?php echo $img_src; ?>" />
 
         <?php
-    } else {
+    } else if(is_category()){
+
+        $category = get_category();
+        $contraintes = get_field('contraintes',$category);
+        $excerpt = $category->name." - ".str_replace("<br />"," / ",$contraintes);
+
+        $img_src = get_field( "media",$category->ID )["sizes"]["medium_large"];
+        ?>
+
+        <meta property="og:title" content="<?php echo single_cat_title(); ?> - <?php echo get_bloginfo(); ?>"/>
+        <meta property="og:description" content="<?php echo $excerpt; ?>"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
+        <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
+        <meta property="og:image" content="<?php echo $img_src; ?>"/>
+        <link rel="image_src" href="<?php echo $img_src; ?>" />
+
+    <?php
+
+    }else{
         return;
     }
 }
