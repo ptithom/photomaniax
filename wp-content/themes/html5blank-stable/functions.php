@@ -632,6 +632,7 @@ function fb_opengraph() {
         $excerpt = $category->name." - ".str_replace("<br />"," / ",$contraintes);
 
         $img_src = get_field( "media",$category->ID )["sizes"]["medium_large"];
+        $size_media = getimagesize($img_src);
         ?>
 
         <meta property="og:title" content="<?php echo single_cat_title(); ?> - <?php echo get_bloginfo(); ?>"/>
@@ -640,6 +641,8 @@ function fb_opengraph() {
         <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
         <meta property="og:image" content="<?php echo $img_src; ?>"/>
+        <meta property="og:image:width" content="<?php echo $size_media[0]; ?>"/>
+        <meta property="og:image:height" content="<?php echo $size_media[1]; ?>"/>
         <link rel="image_src" href="<?php echo $img_src; ?>" />
 
     <?php
