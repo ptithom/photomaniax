@@ -2,7 +2,8 @@
 	<div class="row -">
 		<div class="col-md-5">
 			<a href="<?= get_author_posts_url($author->ID); ?>">
-				<div class="picture_author" style="background-image: url('<?= get_field('media_user',$author); ?>') "></div>
+				<div class="picture_author" style="background-image: url('<?= wp_get_attachment_image_src(get_field('media_user',$author),'medium')[0] ?>') "></div>
+
 			</a>
 		</div>
 		<div class="col-md-7">

@@ -13,7 +13,7 @@
 
 				<div>
 					<h3 class="heading-decor">
-						<span>Photomaniax</span>
+						<span>Pitch du projet:</span>
 					</h3>
 					<div class="content_section">
 						<?= get_field('footer_desc','option') ?>

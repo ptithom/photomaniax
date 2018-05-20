@@ -206,6 +206,7 @@ input:focus {
       > li{
         vertical-align: top;
         display: inline-block;
+        position: relative;
         a{
           text-transform: uppercase;
           font-size: 14px;
@@ -230,6 +231,8 @@ input:focus {
           padding-left: 0;
           list-style: none;
           margin-right: 10px;
+          position: absolute;
+          width: 100%;
           li{
             a{
               height: inherit;
@@ -411,6 +414,7 @@ subfooter{
   display: block;
   position: fixed;
   width: 100%;
+  bottom: 0;
   @media screen and (max-width: 480px) {
     padding: 17px 20px;
   }

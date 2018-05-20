@@ -590,20 +590,30 @@ function fb_opengraph() {
         if(has_post_thumbnail($post->ID)) {
             $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
         } elseif(!empty(get_field( "media",$post->ID ))){
-            $img_src = get_field( "media" )[0]["media"];
+            $img_src = wp_get_attachment_image_src(get_field( "media" )[0]["media"], 'medium')[0];
         }else {
             $img_src = get_stylesheet_directory_uri() . '/img/opengraph_image.jpg';
         }
 
-        if($excerpt = $post->post_excerpt) {
-            $excerpt = strip_tags($post->post_excerpt);
-            $excerpt = str_replace("", "'", $excerpt);
+        $perma_cat = get_post_meta($post->ID , '_category_permalink', true);
+        if ( $perma_cat != null ) {
+            $cat_id = $perma_cat['category'];
+            $category = get_category($cat_id);
         } else {
-            $excerpt = get_bloginfo('description');
+            $categories = get_the_category();
+            $category = $categories[0];
         }
+        $category_name = $category->name;
+        $contraintes = get_field('contraintes',$category);
+
+        $author = get_userdata($post->post_author);
+        $name = get_the_author_meta( 'first_name',$author->ID )." ".get_the_author_meta( 'last_name',$author->ID );
+
+        $excerpt = $category_name." - ".str_replace("<br />"," / ",$contraintes)." - par ".$name;
+
         ?>
 
-        <meta property="og:title" content="<?php echo the_title(); ?>"/>
+        <meta property="og:title" content="<?php echo the_title(); ?> - <?php echo get_bloginfo(); ?>"/>
         <meta property="og:description" content="<?php echo $excerpt; ?>"/>
         <meta property="og:type" content="article"/>
         <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
