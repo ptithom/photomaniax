@@ -631,7 +631,7 @@ function fb_opengraph() {
         $contraintes = get_field('contraintes',$category);
         $excerpt = $category->name." - ".str_replace("<br />"," / ",$contraintes);
 
-        $img_src = get_field( "media",$category->ID )["sizes"]["medium_large"];
+        $img_src = get_field( "media",$category)["sizes"]["medium_large"];
         $size_media = getimagesize($img_src);
         ?>
 
