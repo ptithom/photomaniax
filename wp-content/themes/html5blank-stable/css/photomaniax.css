@@ -7263,6 +7263,21 @@ subfooter {
       width: 100%;
       box-shadow: 8px -2px 34px #000; }
 
+.btn {
+  background: #c48f56;
+  color: #fff;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid #c48f56; }
+  .btn:hover {
+    background: #fff;
+    color: #fff; }
+
 .single .rappel-cat .conraintes {
   margin-top: 5px;
   padding-left: 20px;
