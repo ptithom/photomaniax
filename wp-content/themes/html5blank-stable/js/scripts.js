@@ -52,29 +52,32 @@
 		 * Loader
 		 */
 
-		var loader_conf = {
-			'conteneur': $('body'),
-			'loader': $('<div class="loaderajax"><svg width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-double-ring" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">\n' +
-				'    <circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="40" stroke-width="4" stroke="#a2151e" stroke-dasharray="62.83185307179586 62.83185307179586">\n' +
-				'      <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>\n' +
-				'    </circle>\n' +
-				'    <circle cx="50" cy="50" ng-attr-r="{{config.radius2}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-dasharray="{{config.dasharray2}}" ng-attr-stroke-dashoffset="{{config.dashoffset2}}" fill="none" stroke-linecap="round" r="35" stroke-width="4" stroke="#003444" stroke-dasharray="54.97787143782138 54.97787143782138" stroke-dashoffset="54.97787143782138">\n' +
-				'      <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;-360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>\n' +
-				'    </circle>\n' +
-				'  </svg></div>'),
-		};
-		/**/
-		var loader_setup = function () {
-			$('body').prepend(loader_conf.loader);
-		};
-		loader_toggle = function (state) {
-			if (!state) {
-				loader_conf.loader.fadeOut();
-			} else {
-				loader_conf.loader.fadeIn();
-			}
-		};
-		loader_setup();
+		if($("body").hasClass('category-month-chall')) {
+
+			var loader_conf = {
+				'conteneur': $('body'),
+				'loader': $('<div class="loaderajax"><svg width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-double-ring" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">\n' +
+					'    <circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="40" stroke-width="4" stroke="#a2151e" stroke-dasharray="62.83185307179586 62.83185307179586">\n' +
+					'      <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>\n' +
+					'    </circle>\n' +
+					'    <circle cx="50" cy="50" ng-attr-r="{{config.radius2}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-dasharray="{{config.dasharray2}}" ng-attr-stroke-dashoffset="{{config.dashoffset2}}" fill="none" stroke-linecap="round" r="35" stroke-width="4" stroke="#003444" stroke-dasharray="54.97787143782138 54.97787143782138" stroke-dashoffset="54.97787143782138">\n' +
+					'      <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;-360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>\n' +
+					'    </circle>\n' +
+					'  </svg></div>'),
+			};
+			/**/
+			var loader_setup = function () {
+				$('body').prepend(loader_conf.loader);
+			};
+			loader_toggle = function (state) {
+				if (!state) {
+					loader_conf.loader.fadeOut();
+				} else {
+					loader_conf.loader.fadeIn();
+				}
+			};
+			loader_setup();
+		}
 
 		/** FIN // Loader **/
 
