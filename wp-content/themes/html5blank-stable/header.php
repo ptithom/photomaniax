@@ -51,23 +51,18 @@
 		<!-- /header -->
 
 	<div class="nav-left">
-		<div class="wrapper-rotate">
-			<div class="content-rotate section-toggle" data-class_toggle="box_about">
+		<div class="wrapper-rotate full-height">
+			<div class="content-rotate nav_slide" data-num_slide="2">
+				<span class="element">By Month
+				</span>
+			</div>
+			<div class="content-rotate nav_slide" data-num_slide="3">
 				<span class="element">Le projet
 				</span>
-				<span class="close-section closest">
-					<i class="fa fa-close"></i>
-					close
-				</span>
 			</div>
-			<div class="content-rotate section-toggle " data-class_toggle="box_slide_cat">
-				<span class="element">Catégorie
 
-				</span>
-				<span class="close-section closest">
-					<i class="fa fa-close"></i>
-					close
-				</span>
-			</div>
+			<div class="nav_slide next"><i class="fa fa-chevron-down"></i></div>
+			<div class="nav_slide prev"><i class="fa fa-chevron-up"></i></div>
+
 		</div>
 	</div>

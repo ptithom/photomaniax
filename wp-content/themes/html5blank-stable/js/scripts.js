@@ -26,7 +26,7 @@
 			var hHeader = $('header').innerHeight();
 			var hSubfooter = $('subfooter').innerHeight();
 
-			var sectionFullHeight = h - (hHeader + hSubfooter + 2);
+			var sectionFullHeight = h - (hHeader + hSubfooter );
 
 
 			$(".full-height").css('height',sectionFullHeight+'px');
@@ -97,6 +97,13 @@
 			});
 		});
 
+		$('.slick_slider_cat').slick({
+			infinite: true,
+			slidesToShow: 4,
+			slidesToScroll: 4
+		});
+
+
 		$(document).on('click','.section-toggle',function(){
 			var element = $('.'+ $(this).data('class_toggle'));
 
@@ -139,6 +146,56 @@
 			});
 		});
 
+		//var lastScrollTop = 0;
+		var current_slide_number = 0;
+		//var hHeader = $('header').innerHeight();
+		//var hSubfooter = $('subfooter').innerHeight();
+		var count_slide = $(".wrapper_slider").children().length;
+		//$(window).scroll(function(event){
+		//	var st = $(this).scrollTop();
+		//	if (st > lastScrollTop && (count_slide-1) > current_slide_number) {
+		//		current_slide_number = current_slide_number + 1;
+		//		//$('.wrapper_slider').css('top', 'calc(-' + current_slide_number + '00% + ' + (current_slide_number * hHeader) + 'px + ' + (current_slide_number * hSubfooter) + 'px)');
+		//		$('.wrapper_slider').css('top', '-' + current_slide_number + '00%');
+		//	} else if(current_slide_number != 0){
+		//		current_slide_number = current_slide_number - 1;
+		//		//$('.wrapper_slider').css('top', 'calc(-' + current_slide_number + '00% + ' + (current_slide_number * hHeader) + 'px + ' + (current_slide_number * hSubfooter) + 'px)');
+		//		$('.wrapper_slider').css('top', '-' + current_slide_number + '00%');
+        //
+		//	}
+		//	lastScrollTop = st;
+		//});
+
+		$(document).on('click', '.nav_slide', function() {
+
+			if($(this).hasClass('next') && (count_slide-1) > current_slide_number){
+				current_slide_number = current_slide_number + 1;
+			}else if($(this).hasClass('prev') && current_slide_number != 0){
+				current_slide_number = current_slide_number - 1;
+			}else if($(this).data("num_slide")){
+				current_slide_number = parseInt($(this).data("num_slide")) - 1;
+			}
+
+			$(".nav_slide[data-num_slide]").removeClass("active");
+			$(".nav_slide[data-num_slide='"+(current_slide_number+1)+"']").addClass("active");
+
+			if(current_slide_number == 0 ){
+				$(".nav_slide.prev").hide("faste");
+			}else{
+				$(".nav_slide.prev").show("faste");
+			}
+
+
+			if(current_slide_number == (count_slide-1) ){
+				$(".nav_slide.next").hide("faste");
+			}else{
+				$(".nav_slide.next").show("faste");
+			}
+
+			$('.wrapper_slider').css('top', '-' + current_slide_number + '00%');
+
+
+		});
 
 
 
