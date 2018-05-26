@@ -351,9 +351,7 @@ main{
   margin-top: 75px;
   margin-bottom: 49px;
   position: relative;
-  height: calc(100% - 124px);
   width: 100%;
-  overflow: hidden;
 }
 .wrapper_slider {
   position: absolute;
@@ -599,6 +597,12 @@ subfooter{
         }
       }
     }
+  }
+  main{
+    position: relative;
+    height: calc(100% - 124px);
+    width: 100%;
+    overflow: hidden;
   }
   .full-height{
     .title-home{

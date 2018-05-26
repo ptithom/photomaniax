@@ -6979,9 +6979,7 @@ main {
   margin-top: 75px;
   margin-bottom: 49px;
   position: relative;
-  height: calc(100% - 124px);
-  width: 100%;
-  overflow: hidden; }
+  width: 100%; }
 
 .wrapper_slider {
   position: absolute;
@@ -7181,6 +7179,13 @@ subfooter {
     @media screen and (max-width: 768px) {
       .home .header nav ul li.menu-item-56 {
         display: block; } }
+  .home main {
+    margin-top: 75px;
+    margin-bottom: 49px;
+    position: relative;
+    height: calc(100% - 124px);
+    width: 100%;
+    overflow: hidden; }
   .home .full-height .title-home {
     width: 100%;
     font-size: 5vw;
