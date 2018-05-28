@@ -7046,7 +7046,8 @@ subfooter {
   bottom: 0; }
   @media screen and (max-width: 480px) {
     subfooter {
-      padding: 17px 20px; } }
+      padding: 17px 20px;
+      font-size: 10px; } }
   subfooter p {
     margin-bottom: 0; }
 
@@ -7099,7 +7100,7 @@ subfooter {
   width: calc(100% - 140px);
   margin-left: 70px;
   overflow: hidden; }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 780px) {
     .box_about, .box_slide_cat {
       width: 100%;
       margin-left: 0px; } }
