@@ -7099,6 +7099,10 @@ subfooter {
   width: calc(100% - 140px);
   margin-left: 70px;
   overflow: hidden; }
+  @media screen and (max-width: 0px) {
+    .box_about, .box_slide_cat {
+      width: 100%;
+      margin-left: 0px; } }
   .box_about .content-about, .box_slide_cat .content-about {
     overflow-y: scroll;
     /* max-height: 100%; */
@@ -7180,8 +7184,6 @@ subfooter {
       .home .header nav ul li.menu-item-56 {
         display: block; } }
   .home main {
-    margin-top: 75px;
-    margin-bottom: 49px;
     position: relative;
     height: calc(100% - 124px);
     width: 100%;

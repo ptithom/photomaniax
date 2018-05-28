@@ -489,6 +489,10 @@ subfooter{
   width: calc(100% - 140px);
   margin-left: 70px;
   overflow: hidden;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-left: 0px;
+  }
   .content-about{
     overflow-y: scroll;
     /* max-height: 100%; */
