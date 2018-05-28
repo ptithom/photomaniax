@@ -7099,7 +7099,7 @@ subfooter {
   width: calc(100% - 140px);
   margin-left: 70px;
   overflow: hidden; }
-  @media screen and (max-width: 0px) {
+  @media screen and (max-width: 480px) {
     .box_about, .box_slide_cat {
       width: 100%;
       margin-left: 0px; } }
