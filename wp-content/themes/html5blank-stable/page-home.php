@@ -24,13 +24,13 @@
 					<?php
 
 					$childrens = get_categories( array(
-						'parent'    => 3,
+						'parent'    => ID_CAT_MONTH,
 						'hide_empty' => false,
 						'orderby'    => 'ID',
 						'order'      => 'DESC',
 					) );
 					$childrens_hs = get_categories( array(
-						'parent'    => 6,
+						'parent'    => ID_CAT_HS,
 						'hide_empty' => false,
 						'orderby'    => 'ID',
 						'order'      => 'DESC',
