@@ -36,7 +36,7 @@
 						'order'      => 'DESC',
 					) );
 
-					if(!empty($childrens)): ?>
+					if(!empty($childrens) || !empty($childrens_hs)): ?>
 						<div class="listing_cat slick_slider_cat" >
 							<?php foreach($childrens_hs as $children_hs): ?>
 								<div class="full-height slide_cat">
@@ -45,7 +45,7 @@
 
 										</div>
 										<div class="content_infos">
-											<?php if($children_hs->parent == 6): ?>
+											<?php if($children_hs->parent == ID_CAT_HS): ?>
 												<div class="title_sub_categorie">
 													<?= get_cat_name($children_hs->parent) ?>
 												</div>
@@ -73,7 +73,7 @@
 
 										</div>
 										<div class="content_infos">
-											<?php if($children->parent == 6): ?>
+											<?php if($children->parent == ID_CAT_HS): ?>
 												<div class="title_sub_categorie">
 													<?= get_cat_name($children->parent) ?>
 												</div>
