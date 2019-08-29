@@ -102,6 +102,8 @@
 			infinite: true,
 			slidesToShow: 4,
 			slidesToScroll: 4,
+			dots: true,
+			arrows: false,
 			responsive: [
 				{
 					breakpoint: 768,
@@ -196,7 +198,7 @@
 			}else if($(this).hasClass('prev') && current_slide_number != 1){
 				current_slide_number = current_slide_number - 1;
 			}else if($(this).data("num_slide")){
-				current_slide_number = parseInt($(this).data("num_slide")) - 1;
+				current_slide_number = parseInt($(this).data("num_slide"));
 			}
 
 			update_nav_home();

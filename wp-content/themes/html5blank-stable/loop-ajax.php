@@ -18,7 +18,7 @@
 			<div class="col-12 col-md-5 wrapper-desc-post">
 
 
-				<h2>
+				<h2 class="title_article">
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 				</h2>
 				<!-- /post title -->

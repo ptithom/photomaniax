@@ -22,12 +22,17 @@
 			<div class="box_slide_cat  full-height">
 				<div class="text-center">
 					<?php
-					$cat = get_queried_object();
 
-					$childrens = get_terms( 'category', array(
-						'parent'    => "3",
+					$childrens = get_categories( array(
+						'parent'    => 3,
 						'hide_empty' => false
 					) );
+//					$childrens = get_categories( array(
+//						'parent'    => 6,
+//						'hide_empty' => false
+//					) );
+
+//					$children += array_push($childrens_hS,$children);
 					// print_r($children); // uncomment to examine for debugging
 					if(!empty($childrens)): ?>
 						<div class="listing_cat slick_slider_cat" >
@@ -37,10 +42,25 @@
 								<div class="full-height slide_cat">
 									<a href="<?= get_category_link($children) ?>">
 										<div class="background-image" style="background-image: url(<?= get_field( "media",$children )["sizes"]["medium_large"] ?>)">
+
+										</div>
+										<div class="content_infos">
+											<?php if($children->parent == 6): ?>
+												<div class="title_sub_categorie">
+													<?= get_cat_name($children->parent) ?>
+												</div>
+											<?php endif	?>
+
+											<div class="info_cat">
+												<?= get_field('contraintes',$children) ?>
+											</div>
+
 											<div class="content_title_cat">
 												<?= $children->name?>
 											</div>
 										</div>
+
+
 									</a>
 								</div>
 

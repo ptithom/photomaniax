@@ -7114,6 +7114,19 @@ subfooter {
     right: -20px;
     padding: 0 85px 0 65px;
     text-align: left; }
+  .box_about .slick-dots, .box_slide_cat .slick-dots {
+    bottom: 5px; }
+    .box_about .slick-dots li button, .box_slide_cat .slick-dots li button {
+      text-align: center; }
+      .box_about .slick-dots li button:before, .box_slide_cat .slick-dots li button:before {
+        content: "";
+        position: absolute;
+        background-color: #c48f56;
+        height: 8px;
+        width: 8px;
+        border-radius: 10px;
+        top: 6px;
+        left: 6px; }
 
 .background-image, .wrapper_user .picture_author {
   background-position: center;
@@ -7154,28 +7167,55 @@ subfooter {
 \*------------------------------------*/
 .slick_slider_cat .slide_cat {
   position: relative; }
-  .slick_slider_cat .slide_cat .background-image, .slick_slider_cat .slide_cat .wrapper_user .picture_author, .wrapper_user .slick_slider_cat .slide_cat .picture_author {
-    -webkit-transition: background-position .1s ease-in;
-    -moz-transition: background-position .1s ease-in;
-    -o-transition: background-position .1s ease-in;
-    transition: background-position .1s ease-in; }
-    .slick_slider_cat .slide_cat .background-image:hover, .slick_slider_cat .slide_cat .wrapper_user .picture_author:hover, .wrapper_user .slick_slider_cat .slide_cat .picture_author:hover {
-      background-position-x: 45%; }
-  .slick_slider_cat .slide_cat .content_title_cat {
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
+  .slick_slider_cat .slide_cat .content_infos {
     position: absolute;
-    bottom: 15px;
-    right: 20px; }
-    .slick_slider_cat .slide_cat .content_title_cat:before {
-      content: "";
-      display: block;
-      height: 3px;
-      width: 30px;
-      background-color: #c48f56;
-      bottom: -5px;
-      position: absolute; }
+    top: 0px;
+    height: calc(100% - 20px);
+    width: 100%; }
+    .slick_slider_cat .slide_cat .content_infos .content_title_cat {
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: absolute;
+      bottom: 15px;
+      right: 20px; }
+      .slick_slider_cat .slide_cat .content_infos .content_title_cat:before {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 30px;
+        background-color: #c48f56;
+        bottom: -5px;
+        position: absolute; }
+    .slick_slider_cat .slide_cat .content_infos .title_sub_categorie {
+      width: 100%;
+      padding: 10px;
+      text-transform: uppercase;
+      background-color: #c48f56; }
+    .slick_slider_cat .slide_cat .content_infos .info_cat {
+      text-align: left;
+      padding: 5px;
+      transform: scaleY(0);
+      transform-origin: 50% 0;
+      transition: transform 0.5s ease;
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 500; }
+  .slick_slider_cat .slide_cat .background-image, .slick_slider_cat .slide_cat .wrapper_user .picture_author, .wrapper_user .slick_slider_cat .slide_cat .picture_author {
+    -webkit-transition: background-position .25s ease-in, opacity .25s ease-in;
+    -moz-transition: background-position .25s ease-in, opacity .25s ease-in;
+    -o-transition: background-position .25s ease-in, opacity .25s ease-in;
+    transition: background-position .25s ease-in, opacity .25s ease-in;
+    width: 100%;
+    height: 100%; }
+  .slick_slider_cat .slide_cat:hover .background-image, .slick_slider_cat .slide_cat:hover .wrapper_user .picture_author, .wrapper_user .slick_slider_cat .slide_cat:hover .picture_author {
+    background-position-x: 45%;
+    opacity: 0.75; }
+  .slick_slider_cat .slide_cat:hover .content_infos .info_cat {
+    transform: scaleY(1);
+    color: white; }
+  .slick_slider_cat .slide_cat:hover .content_infos .title_sub_categorie {
+    color: white; }
 
 .home {
   overflow: hidden; }
@@ -7193,17 +7233,30 @@ subfooter {
     width: 100%;
     font-size: 5vw;
     font-weight: bold;
-    text-shadow: 6px 4px #c48f56; }
+    text-shadow: 6px 4px #c48f56;
+    position: relative; }
     @media screen and (max-width: 480px) {
       .home .full-height .title-home {
         font-size: 35px; } }
     .home .full-height .title-home .nav_slide {
-      position: static; }
+      transition: all 0.5s ease-out;
+      position: absolute;
+      bottom: -5vw;
+      animation: location-bounce 1s linear infinite both; }
+      .home .full-height .title-home .nav_slide:hover {
+        bottom: calc(-5vw - 20px);
+        animation: none; }
   .home .full-height h1 {
     display: inline-block;
     font-size: inherit;
     font-weight: inherit; }
 
+@keyframes location-bounce {
+  0%,
+  100% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-5px); } }
 .archive .wrapper-empty, .category .wrapper-empty, .search .wrapper-empty {
   padding: 40px 20px; }
 .archive .listing_cat, .category .listing_cat, .search .listing_cat {
@@ -7255,6 +7308,11 @@ subfooter {
     color: #ffffff82; }
   .archive .content-posts article, .category .content-posts article, .search .content-posts article {
     background-color: #151515;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     margin-bottom: 20px; }
     .archive .content-posts article .wrapper-desc-post, .category .content-posts article .wrapper-desc-post, .search .content-posts article .wrapper-desc-post {
       padding: 20px 30px;
@@ -7270,6 +7328,15 @@ subfooter {
       min-height: 300px;
       width: 100%;
       box-shadow: 8px -2px 34px #000; }
+    .archive .content-posts article .title_article, .category .content-posts article .title_article, .search .content-posts article .title_article {
+      text-transform: uppercase;
+      margin-bottom: 15px; }
+    .archive .content-posts article:hover, .category .content-posts article:hover, .search .content-posts article:hover {
+      background-color: #c48f56; }
+      .archive .content-posts article:hover a, .category .content-posts article:hover a, .search .content-posts article:hover a {
+        color: white; }
+      .archive .content-posts article:hover .cat_preview_media, .category .content-posts article:hover .cat_preview_media, .search .content-posts article:hover .cat_preview_media {
+        box-shadow: 8px -2px 34px #ab763c; }
 
 .btn {
   background: #c48f56;
