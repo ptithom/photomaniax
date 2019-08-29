@@ -25,18 +25,46 @@
 
 					$childrens = get_categories( array(
 						'parent'    => 3,
-						'hide_empty' => false
+						'hide_empty' => false,
+						'orderby'    => 'ID',
+						'order'      => 'DESC',
 					) );
-//					$childrens = get_categories( array(
-//						'parent'    => 6,
-//						'hide_empty' => false
-//					) );
+					$childrens_hs = get_categories( array(
+						'parent'    => 6,
+						'hide_empty' => false,
+						'orderby'    => 'ID',
+						'order'      => 'DESC',
+					) );
 
-//					$children += array_push($childrens_hS,$children);
-					// print_r($children); // uncomment to examine for debugging
 					if(!empty($childrens)): ?>
 						<div class="listing_cat slick_slider_cat" >
+							<?php foreach($childrens_hs as $children_hs): ?>
+								<div class="full-height slide_cat">
+									<a href="<?= get_category_link($children_hs) ?>">
+										<div class="background-image" style="background-image: url(<?= get_field( "media",$children_hs )["sizes"]["medium_large"] ?>)">
 
+										</div>
+										<div class="content_infos">
+											<?php if($children_hs->parent == 6): ?>
+												<div class="title_sub_categorie">
+													<?= get_cat_name($children_hs->parent) ?>
+												</div>
+											<?php endif	?>
+
+											<div class="info_cat">
+												<?= get_field('contraintes',$children_hs) ?>
+											</div>
+
+											<div class="content_title_cat">
+												<?= $children_hs->name?>
+											</div>
+										</div>
+
+
+									</a>
+								</div>
+
+							<?php endforeach; ?>
 							<?php foreach($childrens as $children): ?>
 
 								<div class="full-height slide_cat">
