@@ -1,6 +1,7 @@
 (function ($, root, undefined) {
 
 
+
 	function load_ajax(order,offset,idcat ,ppp,callback){
 		jQuery.post(
 			ajaxurl,
@@ -33,6 +34,25 @@
 		}
 	}
 
+	function update_nav_home(){
+		$(".nav_slide[data-num_slide]").removeClass("active");
+		$(".nav_slide[data-num_slide='" + current_slide_number + "']").addClass("active");
+
+		if (current_slide_number == 1) {
+			$(".nav_slide.prev").hide("faste");
+		} else {
+			$(".nav_slide.prev").show("faste");
+		}
+		if (current_slide_number == count_slide) {
+			$(".nav_slide.next").hide("faste");
+		} else {
+			$(".nav_slide.next").show("faste");
+		}
+
+		$('.wrapper_slider').css('top', '-' + (current_slide_number - 1) + '00%');
+
+	}
+
 
 	$(function () {
 
@@ -43,10 +63,10 @@
 
 		up_full_height();
 		var order = "DESC";
+		var current_slide_number = 0;
+		var count_slide = $(".wrapper_slider").children().length;
+		var tmp_scrool = true;
 
-		/**
-		 * EVENT
-		 */
 
 		/**
 		 * Loader
@@ -77,10 +97,10 @@
 		};
 		loader_setup();
 
-		/** FIN // Loader **/
 
-
-
+		/**
+		 * EVENT
+		 */
 
 		$( window ).resize(function() {
 			up_full_height()
@@ -159,12 +179,9 @@
 			});
 		});
 
-		var current_slide_number = 0;
-		var count_slide = $(".wrapper_slider").children().length;
 
 
-		var tmp_scrool = true;
-		$('body').bind('mousewheel', function(e) {
+		$(document).bind('mousewheel', function(e) {
 
 			if (tmp_scrool){
 
@@ -206,24 +223,7 @@
 
 		});
 
-		function update_nav_home(){
-			$(".nav_slide[data-num_slide]").removeClass("active");
-			$(".nav_slide[data-num_slide='" + current_slide_number + "']").addClass("active");
 
-			if (current_slide_number == 1) {
-				$(".nav_slide.prev").hide("faste");
-			} else {
-				$(".nav_slide.prev").show("faste");
-			}
-			if (current_slide_number == count_slide) {
-				$(".nav_slide.next").hide("faste");
-			} else {
-				$(".nav_slide.next").show("faste");
-			}
-
-			$('.wrapper_slider').css('top', '-' + (current_slide_number - 1) + '00%');
-
-		}
 
 
 
@@ -231,5 +231,5 @@
 
 
 
-	
+
 })(jQuery, this);

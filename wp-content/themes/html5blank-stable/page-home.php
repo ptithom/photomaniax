@@ -5,8 +5,6 @@
 
 		<div class="wrapper_slider">
 
-
-			<!-- section -->
 			<section class="text-center full-height">
 				<div class="vertical-center text-center">
 					<div class="title-home">
@@ -15,11 +13,8 @@
 					</div>
 				</div>
 			</section>
-			<!-- /section -->
 
-
-
-			<div class="box_slide_cat  full-height">
+			<section class="box_slide_cat  full-height">
 				<div class="text-center">
 					<?php
 
@@ -97,13 +92,12 @@
 					<?php endif; ?>
 
 				</div>
-			</div>
+			</section>
 
-
-			<div class="box_about full-height">
+			<section class="box_about full-height">
 				<div class="text-center">
 					<div class="row full-height">
-						<div class="col-12 col-md-6 ">
+						<div class="col-12 col-md-6 d-none d-md-flex">
 							<div class="background-image" style="background-image: url(<?= get_the_post_thumbnail_url(9) ?>)"></div>
 						</div>
 						<div class="col-12 col-md-6 ">
@@ -124,7 +118,8 @@
 					</div>
 
 				</div>
-			</div>
+			</section>
+
 		</div>
 
 	</main>
