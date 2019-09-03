@@ -165,7 +165,7 @@ input:focus {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 100000000;
   background-color: black;
   a, .fa, .btn {
     line-height: 75px;
@@ -258,6 +258,9 @@ input:focus {
         display: block;
         > li {
           display: block;
+          a{
+            display: block;
+          }
           .sub-menu {
             display: none!important;
           }
