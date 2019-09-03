@@ -2,56 +2,7 @@
 
 
 
-	function load_ajax(order,offset,idcat ,ppp,callback){
-		jQuery.post(
-			ajaxurl,
-			{
-				'action': 'load_ajax',
-				'offset': offset,
-				'order': order,
-				'idcat': idcat,
-				'ppp': ppp,
-			},
-			function(response){
-				callback(response)
-			}
-		);
-	}
 
-
-	function up_full_height(){
-		if($(".full-height").length){
-			$('html').css('height','100%');
-			$('body').css('height','100%');
-			var h = window.innerHeight;
-			var hHeader = $('header').innerHeight();
-			var hSubfooter = $('subfooter').innerHeight();
-
-			var sectionFullHeight = h - (hHeader + hSubfooter );
-
-
-			$(".full-height").css('height',sectionFullHeight+'px');
-		}
-	}
-
-	function update_nav_home(){
-		$(".nav_slide[data-num_slide]").removeClass("active");
-		$(".nav_slide[data-num_slide='" + current_slide_number + "']").addClass("active");
-
-		if (current_slide_number == 1) {
-			$(".nav_slide.prev").hide("faste");
-		} else {
-			$(".nav_slide.prev").show("faste");
-		}
-		if (current_slide_number == count_slide) {
-			$(".nav_slide.next").hide("faste");
-		} else {
-			$(".nav_slide.next").show("faste");
-		}
-
-		$('.wrapper_slider').css('top', '-' + (current_slide_number - 1) + '00%');
-
-	}
 
 
 	$(function () {
@@ -222,6 +173,58 @@
 
 
 		});
+
+
+		function load_ajax(order,offset,idcat ,ppp,callback){
+			jQuery.post(
+				ajaxurl,
+				{
+					'action': 'load_ajax',
+					'offset': offset,
+					'order': order,
+					'idcat': idcat,
+					'ppp': ppp,
+				},
+				function(response){
+					callback(response)
+				}
+			);
+		}
+
+
+		function up_full_height(){
+			if($(".full-height").length){
+				$('html').css('height','100%');
+				$('body').css('height','100%');
+				var h = window.innerHeight;
+				var hHeader = $('header').innerHeight();
+				var hSubfooter = $('subfooter').innerHeight();
+
+				var sectionFullHeight = h - (hHeader + hSubfooter );
+
+
+				$(".full-height").css('height',sectionFullHeight+'px');
+			}
+		}
+
+		function update_nav_home(){
+			$(".nav_slide[data-num_slide]").removeClass("active");
+			$(".nav_slide[data-num_slide='" + current_slide_number + "']").addClass("active");
+
+			if (current_slide_number == 1) {
+				$(".nav_slide.prev").hide("faste");
+			} else {
+				$(".nav_slide.prev").show("faste");
+			}
+			if (current_slide_number == count_slide) {
+				$(".nav_slide.next").hide("faste");
+			} else {
+				$(".nav_slide.next").show("faste");
+			}
+
+			$('.wrapper_slider').css('top', '-' + (current_slide_number - 1) + '00%');
+
+		}
 
 
 
