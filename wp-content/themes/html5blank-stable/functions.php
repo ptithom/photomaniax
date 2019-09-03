@@ -98,22 +98,8 @@ function html5blank_footer_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-
-//        wp_register_script('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js', array('jquery'), '4.0.5'); // Custom scripts
-//        wp_enqueue_script('select2'); // Enqueue it!
-
-//        wp_register_script('kwtools', get_template_directory_uri() . '/js/tools.js', array('jquery'), '1.0.0');
-//        wp_enqueue_script('kwtools'); // Enqueue it!
-
-//        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-//        wp_enqueue_script('html5blankscripts'); // Enqueue it!
-//        wp_localize_script('html5blankscripts', 'ajaxurl', admin_url('admin-ajax.php'));
-
         wp_register_script('bootstrap', get_template_directory_uri() . '/js/lib/bootstrap/src/index.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('bootstrap'); // Enqueue it!
-
-        wp_register_script('slick', get_template_directory_uri() . '/libs/slick/slick.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('slick'); // Enqueue it!
 
         wp_register_script('lightbox', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('lightbox'); // Enqueue it!
@@ -124,10 +110,13 @@ function html5blank_footer_scripts()
         wp_register_script('bootstrap-datepicker-fr', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.fr.min.js', array('jquery', 'bootstrap'), '1.7.1'); // Custom scripts
         wp_enqueue_script('bootstrap-datepicker-fr'); // Enqueue it!
 
+        wp_register_script('slick', get_template_directory_uri() . '/libs/slick/slick.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('slick'); // Enqueue it!
 
+        wp_localize_script('html5blankscripts', 'ajaxurl', admin_url('admin-ajax.php'));
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
-        wp_localize_script('html5blankscripts', 'ajaxurl', admin_url('admin-ajax.php'));
+
 
     }
 }
