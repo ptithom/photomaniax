@@ -6831,7 +6831,7 @@ input:focus {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 100000000;
   background-color: black; }
   .header a, .header .fa, .header .btn {
     line-height: 75px;
@@ -6905,6 +6905,8 @@ input:focus {
           display: block; }
           .header nav > ul > li {
             display: block; }
+            .header nav > ul > li a {
+              display: block; }
             .header nav > ul > li .sub-menu {
               display: none !important; } }
 
