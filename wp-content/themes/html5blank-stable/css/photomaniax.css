@@ -6826,29 +6826,23 @@ input:focus {
     STRUCTURE
 \*------------------------------------*/
 .header {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100000000;
   background-color: black; }
   .header a, .header .fa, .header .btn {
-    line-height: 75px;
+    line-height: 55px;
     cursor: pointer; }
-  .header > div {
-    margin-left: 20px; }
-    .header > div:last-child {
-      margin-right: 0px; }
-    .header > div:first-child {
-      margin-left: 0px; }
+  .header .picto_footer, .header .picto_search, .header .picto-nav-mobile {
+    padding: 0px 20px; }
   .header .logo {
     font-weight: bold; }
-  .header .picto-nav-mobile {
-    padding: 0px 20px; }
-    @media screen and (min-width: 760px) {
-      .header .picto-nav-mobile {
-        display: none; } }
+  @media screen and (min-width: 760px) {
+    .header .picto-nav-mobile {
+      display: none; } }
   .header nav {
     display: inline-block;
     background-color: black;

@@ -20,7 +20,7 @@
 		<!-- header -->
 		<header class="header clear" role="banner">
 
-			<div class="section-toggle d-inline-block" data-class_toggle="footer">
+			<div class="section-toggle d-inline-block picto_footer" data-class_toggle="footer">
 				<i class="fa fa-list-ul"></i>
 			</div>
 
@@ -32,7 +32,7 @@
 			</div>
 			<!-- /logo -->
 
-			<div class="section-toggle text-right float-right" data-class_toggle="box_search">
+			<div class="section-toggle text-right float-right picto_search" data-class_toggle="box_search">
 				<i class="fa fa-search"></i>
 			</div>
 
