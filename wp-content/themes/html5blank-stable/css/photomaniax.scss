@@ -160,33 +160,25 @@ input:focus {
 \*------------------------------------*/
 
 .header {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100000000;
   background-color: black;
   a, .fa, .btn {
-    line-height: 75px;
+    line-height: 55px;
     cursor: pointer;
     @extend .transition
   }
-
-  > div {
-    margin-left: 20px;
-    &:last-child {
-      margin-right: 0px;
-    }
-    &:first-child {
-      margin-left: 0px;
-    }
+  .picto_footer,.picto_search,.picto-nav-mobile{
+    padding: 0px 20px;
   }
   .logo {
     font-weight: bold;
   }
   .picto-nav-mobile {
-    padding: 0px 20px;
     @media screen and (min-width: 760px) {
       display: none;
     }
